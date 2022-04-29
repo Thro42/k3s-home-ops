@@ -1,0 +1,64 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-apps
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/Thro42/k3s-home-ops.git
+        revision: HEAD
+        files:
+          - path: "cluster/**/gen-config.json"
+    - git:
+        repoURL: https://github.com/Thro42/k3s-home-ops.git
+        revision: HEAD
+        files:
+          - path: "cluster/**/gen-config2.json"
+        template:
+          metadata: {}
+          spec:
+            destination: {}
+            project: cluster-apps
+            source:
+              repoURL: https://github.com/Thro42/k3s-home-ops.git
+              helm:
+                valueFiles:
+                  - '../values.yaml'
+                  - 'values.yaml'
+                  - '{{ valueFile }}'
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  template:
+    metadata:
+      name: '{{ name }}'
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: '/{{ folderPath }}'
+    spec:
+      project: cluster-apps
+      source:
+        path: '{{ folderPath }}'
+        targetRevision: HEAD
+        repoURL: https://github.com/Thro42/k3s-home-ops.git
+        helm:
+          valueFiles:
+            - values.yaml
+            - '{{ valueFile }}'
+      destination:
+        namespace: '{{ namespace }}'
+        name: '{{ cluster }}'
+      syncPolicy:
+        # automated: {}
+        syncOptions:
+          - ApplyOutOfSyncOnly=true
+      ignoreDifferences:
+        - group: ""
+          kind: Secret
+          name: kubedb-apiserver-cert
+          jsonPointers:
+            - /data
+        - group: apps
+          kind: Deployment
+          name: kubedb
+          namespace: databases
+          jsonPointers:
+            - /spec/template/metadata/annotations/checksum~1apiregistration.yaml

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.service.expose: habridge.thomitzek.net
+    kompose.service.type: LoadBalancer
+    kompose.volume.size: 1Gi
+    kompose.volume.storage-class-name: nfs-client
+  labels:
+    io.kompose.service: habridge-tcp
+  name: habridge-tcp
+  namespace: habridge
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+    - name: "upnp-tcp"
+      port: 50000
+      targetPort: 50000
+      protocol: TCP
+    - name: "upnp-udp"
+      port: 50000
+      targetPort: 50000
+      protocol: UDP
+  selector:
+    io.kompose.service: habridge
+  type: ClusterIP

@@ -10,7 +10,7 @@ metadata:
     metallb.universe.tf/address-pool: server
   labels:
     io.kompose.service: habridge-upnp
-  name: habridge-upnp
+  name: habridge-upnp-tcp
   namespace: habridge
 spec:
   ports:
@@ -18,10 +18,6 @@ spec:
       port: 50000
 #      targetPort: 50000
       protocol: TCP
-    - name: "upnp-udp"
-      port: 50000
-#      targetPort: 50000
-      protocol: UDP
   selector:
     io.kompose.service: habridge
   type: LoadBalancer

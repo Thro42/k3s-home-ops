@@ -9,15 +9,20 @@ metadata:
     kompose.volume.storage-class-name: nfs-client
     metallb.universe.tf/address-pool: server
   labels:
-    io.kompose.service: habridge-tcp
-  name: habridge-tcp
+    io.kompose.service: habridge-upnp
+  name: habridge-upnp
   namespace: habridge
 spec:
   ports:
-    - name: http
-      port: 8080
-      targetPort: 8080
+    - name: "upnp-tcp"
+      port: 50000
+      targetPort: 50000
       protocol: TCP
+    - name: "upnp-udp"
+      port: 50000
+      targetPort: 50000
+      protocol: UDP
   selector:
     io.kompose.service: habridge
-  type: ClusterIP
+  type: LoadBalancer
+  loadBalancerIP: 192.168.42.18

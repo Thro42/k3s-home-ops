@@ -8,6 +8,7 @@ metadata:
     kompose.volume.size: 1Gi
     kompose.volume.storage-class-name: nfs-client
     metallb.universe.tf/address-pool: server
+    metallb.universe.tf/allow-shared-ip: habridge-svc
   labels:
     io.kompose.service: habridge-upnp
   name: habridge-upnp-tcp
@@ -16,7 +17,7 @@ spec:
   ports:
     - name: "upnp-tcp"
       port: 50000
-#      targetPort: 50000
+      targetPort: 50000
       protocol: TCP
   selector:
     io.kompose.service: habridge

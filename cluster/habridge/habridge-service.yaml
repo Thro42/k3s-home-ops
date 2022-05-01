@@ -21,12 +21,10 @@ spec:
     - name: "upnp-tcp"
       port: 50000
       targetPort: 50000
-      nodePort: 50000
       protocol: TCP
     - name: "upnp-udp"
       port: 50000
       targetPort: 50000
-      nodePort: 50000
       protocol: UDP
   selector:
     io.kompose.service: habridge

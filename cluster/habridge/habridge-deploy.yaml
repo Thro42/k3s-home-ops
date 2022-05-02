@@ -27,6 +27,7 @@ spec:
       labels:
         io.kompose.service: habridge
     spec:
+      hostNetwork: true
       containers:
         - env:
             - name: PGID

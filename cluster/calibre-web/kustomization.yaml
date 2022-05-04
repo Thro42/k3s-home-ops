@@ -1,2 +1,11 @@
 resources:
 - values.yaml
+
+patches:
+- target:
+    kind: port
+    name: port
+  patch: |-
+    - op: replace
+    path: /service/main/ports/http/port
+    value: 8888

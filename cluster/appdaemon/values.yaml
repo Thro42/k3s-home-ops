@@ -1,0 +1,30 @@
+
+image:
+  repository: acockburn/appdaemon
+  tag: 4.2.1
+persistence:
+  config:
+     enabled: true
+     existingClaim: home-assistant-pvc
+     mountPath: ""
+     subPath:
+       - path: .
+         mountPath: /ha-conf
+       - path: appdaemon
+         mountPath: /conf
+env:
+  TZ: Europe/Berlin
+  HA_URL: http://{{ HOME_ASSISTANT_IP }}:8123/
+  TOKEN: {{ HOME_ASSISTANT_TOKEN }}
+  DASH_URL: http://{{ HOME_ASSISTANT_IP }}:5050/
+
+service:
+  main:
+    enabled: true
+    type: LoadBalancer
+    loadBalancerIP: {{ HOME_ASSISTANT_IP }}
+    port: 5050
+    nodePort: 5050
+    ports:
+      http:
+        port: 5050

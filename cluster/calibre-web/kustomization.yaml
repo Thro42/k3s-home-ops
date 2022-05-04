@@ -11,5 +11,5 @@ patches:
     name: port
   patch: |-
     - op: replace
-    path: /spec/ports/port
+    path: /service/main/ports/http/port
     value: 8888

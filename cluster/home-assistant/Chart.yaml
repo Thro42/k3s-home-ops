@@ -1,8 +1,8 @@
-name: home-assistant
-appVersion: 2022.5.2
-description: Home Assistant
 apiVersion: v2
-version: 1.0.0
+name: home-assistant
+description: Home Assistant
+version: 1.0.1
+appVersion: 2022.5.2
 dependencies:
   - name: home-assistant
     repository: https://k8s-at-home.com/charts/

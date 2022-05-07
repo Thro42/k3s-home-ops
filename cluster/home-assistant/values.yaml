@@ -14,7 +14,7 @@ service:
     type: LoadBalancer
     port: 8123
     nodePort: 8123
-    loadBalancerIP: {{HOME_ASSISTANT_IP}}
+    loadBalancerIP: 192.168.42.19
     ports:
       http:
         port: 8123
@@ -64,7 +64,7 @@ addons:
     service:
       enabled: true
       type: LoadBalancer
-      loadBalancerIP: {{HOME_ASSISTANT_IP}}
+      loadBalancerIP: 192.168.42.19
       ports:
         codeserver:
           port: 12321
@@ -83,7 +83,7 @@ configurator:
   service:
     enabled: true
     type: LoadBalancer
-    loadBalancerIP: {{HOME_ASSISTANT_IP}}
+    loadBalancerIP: 192.168.42.19
     port: 3218
 #-----------------------------------------------------------
 appdaemon:
@@ -96,7 +96,7 @@ appdaemon:
   service:
     enabled: true
     type: LoadBalancer
-    loadBalancerIP: {{HOME_ASSISTANT_IP}}
+    loadBalancerIP: 192.168.42.19
     port: 5050
 #-----------------------------------------------------------
 # -- Enable and configure mariadb database subchart under this key.

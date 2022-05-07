@@ -4,12 +4,21 @@ metadata:
   name: home-assistant-application
   namespace: argocd
 spec:
-  project: default
+  project: home
 
   source:
     repoURL: https://github.com/Thro42/k3s-home-ops.git
     targetRevision: HEAD
     path: cluster/home-assistant
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: service.main.loadBalancerIP
+          value: '192.168.42.19'
+        - name: HOME_ASSISTANT_IP
+          value: '192.168.42.19'
+
   destination: 
     server: https://kubernetes.default.svc
     namespace: home-assistant

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: home-assistant-configmap
+  namespace: home-assistant
+data:
+  database_url: home-assistant

@@ -1,4 +1,5 @@
 name: home-assistant
+appVersion: 2022.5.2
 description: Home Assistant
 apiVersion: v2
 version: 1.0.0

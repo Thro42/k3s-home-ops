@@ -14,15 +14,15 @@ persistence:
          mountPath: /conf
 env:
   TZ: Europe/Berlin
-  HA_URL: http://{{ HOME_ASSISTANT_IP }}:8123/
-  TOKEN: {{ HOME_ASSISTANT_TOKEN }}
-  DASH_URL: http://{{ HOME_ASSISTANT_IP }}:5050/
+  HA_URL: http://192.168.42.19:8123/
+  TOKEN:  $HOME_ASSISTANT_TOKEN
+  DASH_URL: http://192.168.42.19:5050/
 
 service:
   main:
     enabled: true
     type: LoadBalancer
-    loadBalancerIP: {{ HOME_ASSISTANT_IP }}
+    loadBalancerIP: 192.168.42.19
     port: 5050
     nodePort: 5050
     ports:

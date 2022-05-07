@@ -1,5 +1,5 @@
 image:
-  repository: ghome-assistant/home-assistant
+  repository: home-assistant/home-assistant
   tag: 2022.5.2
   pullPolicy: IfNotPresent
 

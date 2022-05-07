@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: home-assistant-pvc
   namespace: home-assistant
+  labels:
+    app.name: home-assistant
 spec:
   storageClassName: nfs-client
   accessModes:

@@ -11,10 +11,10 @@ env:
 service:
   main:
 #    primary: true
-    type: LoadBalancer
+    type: ClusterIP
 #    port: 8123
 #    nodePort: 8123
-    loadBalancerIP: 192.168.42.19
+#    loadBalancerIP: 192.168.42.19
     ports:
       http:
         protocol: HTTP

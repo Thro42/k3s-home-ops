@@ -16,6 +16,8 @@ spec:
       parameters:
         - name: HOME_ASSISTANT_IP
           value: '192.168.42.19'
+        - name: HOME_ASSISTANT_TOKEN
+          value: 
 
   destination: 
     server: https://kubernetes.default.svc

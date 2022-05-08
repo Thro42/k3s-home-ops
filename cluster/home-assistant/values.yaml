@@ -33,7 +33,7 @@ ingress:
           - path: /
             pathType: Prefix
 
-hostname: homeassistant.thomitzek.net
+hostname: "homeassistant"
 # -- Enable devices to be discoverable
 hostNetwork: true
 

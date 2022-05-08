@@ -4,7 +4,7 @@ metadata:
   annotations:
     metallb.universe.tf/address-pool: server
   name: homeassistant-tcp
-  namespace: homeassistant
+  namespace: home-assistant
 spec:
   ports:
     - name: http

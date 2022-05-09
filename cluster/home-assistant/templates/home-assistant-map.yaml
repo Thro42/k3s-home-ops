@@ -5,3 +5,5 @@ metadata:
   namespace: home-assistant
 data:
   database_url: home-assistant
+  homeassistant_ip: 192.168.1.1
+  ingress_hostname: homeassistant.domain.my

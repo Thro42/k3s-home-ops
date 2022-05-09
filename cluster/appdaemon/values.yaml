@@ -15,7 +15,7 @@ persistence:
 env:
   TZ: Europe/Berlin
   HA_URL: http://192.168.42.19:8123/
-  TOKEN:  cthvYFGgpS482SyvbPnddw0XoJRRoVfgQzTco93A3Xw
+  TOKEN:  
   DASH_URL: http://192.168.42.19:5050/
 
 service:

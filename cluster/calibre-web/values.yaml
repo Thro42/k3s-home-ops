@@ -17,7 +17,11 @@ image:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
+  TZ: 
+    valueFrom:
+      configMapKeyRef:
+        name: calibre-web-configmap
+        key: time_zone
   # -- Specify the user ID the application will run as
   PUID: "1001"
   # -- Specify the group ID the application will run as
@@ -35,7 +39,16 @@ ingress:
   # -- Enable and configure ingress settings for the chart under this key.
   # @default -- See values.yaml
   main:
-    enabled: false
+    enabled: true
+    hosts:
+      - host: 
+         valueFrom:
+          configMapKeyRef:
+            name: calibre-web-configmap
+            key: ingress_hostname
+        paths:
+          - path: /
+            pathType: Prefix
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

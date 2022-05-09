@@ -38,6 +38,7 @@ service:
   main:
     ports:
       http:
+        protocol: HTTP
         port: 8083
 
 ingress:

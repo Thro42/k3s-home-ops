@@ -46,12 +46,8 @@ ingress:
   # @default -- See values.yaml
   main:
     enabled: true
-    hosts:
-      - host: 
-         valueFrom:
-          configMapKeyRef:
-            name: calibre-web-configmap
-            key: ingress_hostname
+    hosts: 
+      - host: calibre.domain.my
         paths:
           - path: /
             pathType: Prefix

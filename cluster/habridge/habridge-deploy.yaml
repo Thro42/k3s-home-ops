@@ -35,6 +35,8 @@ spec:
               value: "1000"
             - name: TZ
               value: Europe/Berlin
+            - name: HABRIDGE_IP
+              value: 192.168.1.1
           image: lscr.io/linuxserver/habridge
           name: habridge
           ports:

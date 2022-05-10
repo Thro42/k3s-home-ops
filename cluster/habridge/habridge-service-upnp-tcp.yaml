@@ -22,4 +22,4 @@ spec:
   selector:
     io.kompose.service: habridge
   type: LoadBalancer
-  loadBalancerIP: $(env.HABRIDGE_IP)
+  loadBalancerIP: ${env.HABRIDGE_IP}

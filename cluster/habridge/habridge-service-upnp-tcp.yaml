@@ -14,12 +14,6 @@ metadata:
   name: habridge-upnp-tcp
   namespace: habridge
 spec:
-  env:
-  - name: HABRIDGE_IP
-    valueFrom:
-      configMapKeyRef:
-        name: habridge-configmap
-        key:  habridge_ip
   ports:
     - name: "upnp-tcp"
       port: 50000
@@ -28,4 +22,4 @@ spec:
   selector:
     io.kompose.service: habridge
   type: LoadBalancer
-  loadBalancerIP: ${HABRIDGE_IP}
+  loadBalancerIP: $HABRIDGE_IP

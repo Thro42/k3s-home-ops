@@ -36,7 +36,10 @@ spec:
             - name: TZ
               value: Europe/Berlin
             - name: HABRIDGE_IP
-              value: 192.168.1.1
+              valueFrom:
+                configMapKeyRef:
+                  name: habridge-configmap
+                  key:  habridge_ip
           image: lscr.io/linuxserver/habridge
           name: habridge
           ports:

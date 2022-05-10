@@ -4,6 +4,6 @@ metadata:
   name: habridge-configmap
   namespace: habridge
 data:
-  calibre_ip: 192.168.1.1
+  habridge_ip: 192.168.1.1
   ingress_hostname: habridge.domain.my
   time_zone: Europe/Berlin

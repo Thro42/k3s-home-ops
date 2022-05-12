@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rancher
+  namespace: cattle-system
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Thro42/k3s-home-ops.git
+    targetRevision: HEAD
+    path: cluster/rancher
+    helm:
+      releaseName: rancher
+      valueFiles:
+        - "values.yaml"
+
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: cattle-system
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true

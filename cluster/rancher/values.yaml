@@ -120,7 +120,7 @@ useBundledSystemChart: false
 
 # Certmanager version compatibility
 certmanager: 
-  version: ""
+  version: "v1.8.0"
 
 # Rancher custom logos persistence
 customLogos:
@@ -139,19 +139,19 @@ customLogos:
   size: 1Gi
 
 # Rancher post-delete hook
-#postDelete:
-#  enabled: true
-#  image:
-#    repository: %POST_DELETE_IMAGE_NAME%
-#    tag: %POST_DELETE_IMAGE_TAG%
-#  namespaceList:
-#    - cattle-fleet-system
-#    - cattle-system
-#    - rancher-operator-system
-#  # Number of seconds to wait for an app to be uninstalled
-#  timeout: 120
-#  # by default, the job will fail if it fail to uninstall any of the apps
-#  ignoreTimeoutError: false
+postDelete:
+  enabled: true
+  image:
+    repository: %POST_DELETE_IMAGE_NAME%
+    tag: %POST_DELETE_IMAGE_TAG%
+  namespaceList:
+    - cattle-fleet-system
+    - cattle-system
+    - rancher-operator-system
+  # Number of seconds to wait for an app to be uninstalled
+  timeout: 120
+  # by default, the job will fail if it fail to uninstall any of the apps
+  ignoreTimeoutError: false
 
 # Set a bootstrap password. If leave empty, a random password will be generated.
 bootstrapPassword: ""

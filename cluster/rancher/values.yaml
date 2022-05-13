@@ -57,7 +57,7 @@ ingress:
   # Defaults to true
   # options: true, false
   enabled: true
-  includeDefaultExtraAnnotations: true
+  includeDefaultExtraAnnotations: fase
   extraAnnotations: {}
 
   # configurationSnippet - Add additional Nginx configuration. This example statically sets a header on the ingress.

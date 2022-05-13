@@ -43,7 +43,7 @@ restrictedAdmin: false
 #   value: "1.0"
 
 # Fully qualified name to reach your Rancher server
-hostname: rancher.thomitzek.net
+# hostname: rancher.my.org
 
 ## Optional array of imagePullSecrets containing private registry credentials
 ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
@@ -57,7 +57,7 @@ ingress:
   # Defaults to true
   # options: true, false
   enabled: true
-  includeDefaultExtraAnnotations: fase
+  includeDefaultExtraAnnotations: true
   extraAnnotations: {}
 
   # configurationSnippet - Add additional Nginx configuration. This example statically sets a header on the ingress.
@@ -73,10 +73,10 @@ ingress:
 # ProTip: The production environment only allows you to register a name 5 times a week.
 #         Use staging until you have your config right.
 letsEncrypt:
-  # email: thomitzek@example.com
+  # email: none@example.com
   environment: production
   ingress:
-    # options: traefik
+    # options: traefik, nginx
     class: ""
 # If you are using certs signed by a private CA set to 'true' and set the 'tls-ca'
 # in the 'rancher-system' namespace. See the README.md for details
@@ -86,13 +86,13 @@ privateCA: false
 # proxy: http://<username>@<password>:<url>:<port>
 
 # comma separated list of domains or ip addresses that will not use the proxy
-noProxy: 127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.42.0/16,.svc,.cluster.local
+noProxy: 127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.svc,.cluster.local
 
 # Override rancher image location for Air Gap installs
 rancherImage: rancher/rancher
 # rancher/rancher image tag. https://hub.docker.com/r/rancher/rancher/tags/
 # Defaults to .Chart.appVersion
-rancherImageTag: v2.6-head # v2.0.7
+# rancherImageTag: v2.0.7
 
 # Override imagePullPolicy for rancher server images
 # options: Always, Never, IfNotPresent
@@ -101,7 +101,7 @@ rancherImageTag: v2.6-head # v2.0.7
 
 # Number of Rancher server replicas. Setting to negative number will dynamically between 0 and the abs(replicas) based on available nodes.
 # of available nodes in the cluster
-replicas: 1
+replicas: 3
 
 # Set pod resource requests/limits for Rancher.
 resources: {}
@@ -120,7 +120,7 @@ useBundledSystemChart: false
 
 # Certmanager version compatibility
 certmanager: 
-  version: "v1.8.0"
+  version: ""
 
 # Rancher custom logos persistence
 customLogos:
@@ -134,24 +134,24 @@ customLogos:
   # volumeName: custom-logos
   ## Just for volumeKind: persistentVolumeClaim 
   ## To disables dynamic provisioning, set storageClass: "" or storageClass: "-"
-  storageClass: nfs-client
+  # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 1Gi
 
 # Rancher post-delete hook
-#postDelete:
-#  enabled: true
-#  image:
-#    repository: %POST_DELETE_IMAGE_NAME%
-#    tag: %POST_DELETE_IMAGE_TAG%
-#  namespaceList:
-#    - cattle-fleet-system
-#    - cattle-system
-#    - rancher-operator-system
-#  # Number of seconds to wait for an app to be uninstalled
-#  timeout: 120
-#  # by default, the job will fail if it fail to uninstall any of the apps
-#  ignoreTimeoutError: false
+postDelete:
+  enabled: true
+  image:
+    repository: rancher/shell
+    tag: v0.1.16
+  namespaceList:
+    - cattle-fleet-system
+    - cattle-system
+    - rancher-operator-system
+  # Number of seconds to wait for an app to be uninstalled
+  timeout: 120
+  # by default, the job will fail if it fail to uninstall any of the apps
+  ignoreTimeoutError: false
 
 # Set a bootstrap password. If leave empty, a random password will be generated.
-bootstrapPassword: "geheim"
+bootstrapPassword: ""

@@ -77,7 +77,7 @@ letsEncrypt:
   environment: production
   ingress:
     # options: traefik, nginx
-    class: ""
+    class: "traefik"
 # If you are using certs signed by a private CA set to 'true' and set the 'tls-ca'
 # in the 'rancher-system' namespace. See the README.md for details
 privateCA: false
@@ -92,16 +92,16 @@ noProxy: 127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.svc,.cluster.local
 rancherImage: rancher/rancher
 # rancher/rancher image tag. https://hub.docker.com/r/rancher/rancher/tags/
 # Defaults to .Chart.appVersion
-# rancherImageTag: v2.0.7
+rancherImageTag: v2.4.8
 
 # Override imagePullPolicy for rancher server images
 # options: Always, Never, IfNotPresent
 # Defaults to IfNotPresent
-# rancherImagePullPolicy: <pullPolicy>
+rancherImagePullPolicy: “IfNotPresent”
 
 # Number of Rancher server replicas. Setting to negative number will dynamically between 0 and the abs(replicas) based on available nodes.
 # of available nodes in the cluster
-replicas: 3
+replicas: 1
 
 # Set pod resource requests/limits for Rancher.
 resources: {}

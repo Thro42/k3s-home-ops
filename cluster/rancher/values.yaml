@@ -97,7 +97,7 @@ rancherImageTag: v2.4.8
 # Override imagePullPolicy for rancher server images
 # options: Always, Never, IfNotPresent
 # Defaults to IfNotPresent
-rancherImagePullPolicy: “IfNotPresent”
+#rancherImagePullPolicy: “IfNotPresent”
 
 # Number of Rancher server replicas. Setting to negative number will dynamically between 0 and the abs(replicas) based on available nodes.
 # of available nodes in the cluster

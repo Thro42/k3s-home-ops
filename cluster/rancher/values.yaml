@@ -47,8 +47,8 @@ hostname: rancher.thomitzek.net
 
 ## Optional array of imagePullSecrets containing private registry credentials
 ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-imagePullSecrets: []
-# - name: secretName
+imagePullSecrets: 
+ - name: secretName
 
 ### ingress ###
 # Readme for details and instruction on adding tls secrets.

@@ -9,6 +9,6 @@ metadata:
 {{ include "rancher.labels" . | indent 4 }}
 spec:
   ca:
-    secretName: tls-rancher
+    secretName: .Values.ingress.tls.secretName #tls-rancher
   {{- end -}}
 {{- end -}}

@@ -1,0 +1,7 @@
+name: rancher
+apiVersion: v1
+version: 1.0.0
+dependencies:
+  - name: rancher
+    repository: https://releases.rancher.com/server-charts/latest
+    version: 2.4.8

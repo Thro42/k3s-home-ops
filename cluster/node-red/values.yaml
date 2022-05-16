@@ -1,4 +1,4 @@
----
+
 image:
   repository: nodered/node-red
   tag: 2.1.4
@@ -6,9 +6,8 @@ image:
 
 # -- environment variables. See [image docs](https://nodered.org/docs/getting-started/docker) for more details.
 env:
-  # -- "Europe/Berlin" the container timezone
   TZ: "Europe/Berlin"
-#  NODE_OPTIONS:
+  NODE_OPTIONS: "true"
   NODE_RED_ENABLE_PROJECTS: "true"
   NODE_RED_ENABLE_SAFE_MODE: "false"
   FLOWS: flows.json
@@ -40,6 +39,8 @@ ingress:
             pathType: Prefix
 # -- Configure persistence settings for the chart under this key.
 persistence:
+  enabled: true
+  existingClaim: node-red-pvc
   data:
     enabled: true
     existingClaim: node-red-pvc

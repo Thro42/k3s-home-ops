@@ -5,7 +5,6 @@ metadata:
     kompose.cmd: kompose convert
   labels:
     io.kompose.service: node-red
-    app.kubernetes.io/name: node-red
   name: node-red
 spec:
   replicas: 1
@@ -21,7 +20,6 @@ spec:
       labels:
         io.kompose.network/node-red-net: "true"
         io.kompose.service: node-red
-        app.kubernetes.io/name: node-red
     spec:
       containers:
         - env:

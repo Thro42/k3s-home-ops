@@ -10,7 +10,7 @@ env:
   NODE_OPTIONS: "true"
   NODE_RED_ENABLE_PROJECTS: "true"
   NODE_RED_ENABLE_SAFE_MODE: "false"
-  FLOWS: flows.json
+  FLOWS: "flows.json"
 
 # -- Configures service settings for the chart.
 service:

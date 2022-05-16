@@ -16,7 +16,7 @@ env:
 # -- Configures service settings for the chart.
 service:
   main:
-    type: ClusterIP
+    type: LoadBalancer
     port: 1880
     nodePort: 1880
     loadBalancerIP: 192.168.42.9
@@ -33,8 +33,12 @@ hostAliases:
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
   main:
-    enabled: false
-
+    enabled: true
+    hosts:
+      - host: node-red.thomitzek.net
+        paths:
+          - path: /
+            pathType: Prefix
 # -- Configure persistence settings for the chart under this key.
 persistence:
   data:

@@ -12,7 +12,6 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: node-red
-      app.kubernetes.io/name: node-red
   strategy:
     type: Recreate
   template:

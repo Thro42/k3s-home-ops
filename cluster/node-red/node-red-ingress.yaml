@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: node-red-ingress
+  labels:
+    app: node-red
+    name: node-red
+  namespace: node-red
+spec:
+  rules:
+  - host: node-red.thomitzek.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: node-red-tcp
+            port: 
+              number: 80

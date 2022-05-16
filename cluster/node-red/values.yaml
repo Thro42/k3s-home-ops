@@ -31,7 +31,6 @@ hostAliases:
    - node-red.thomitzek.net
 
 ingress:
-  # -- Enable and configure ingress settings for the chart under this key.
   main:
     enabled: true
     hosts:

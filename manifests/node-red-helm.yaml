@@ -10,10 +10,20 @@ spec:
     repoURL: https://github.com/Thro42/k3s-home-ops.git
     targetRevision: HEAD
     path: cluster/node-red
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: NODE_RED_ENABLE_PROJECTS
+          value: "true"
+        - name: NODE_RED_ENABLE_SAFE_MODE
+          value: "false"
+        - name: FLOWS
+          value: flows.json
+
   destination: 
     server: https://kubernetes.default.svc
     namespace: node-red
-
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

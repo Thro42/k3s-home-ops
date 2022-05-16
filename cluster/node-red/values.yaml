@@ -1,15 +1,15 @@
 
 image:
   repository: nodered/node-red
-  tag: 2.1.4
+  tag: 2.2.2-12
   pullPolicy: IfNotPresent
 
 # -- environment variables. See [image docs](https://nodered.org/docs/getting-started/docker) for more details.
 env:
   TZ: "Europe/Berlin"
-  NODE_OPTIONS: "true"
-  NODE_RED_ENABLE_PROJECTS: "true"
-  NODE_RED_ENABLE_SAFE_MODE: "false"
+  NODE_OPTIONS: 
+  NODE_RED_ENABLE_PROJECTS: 
+  NODE_RED_ENABLE_SAFE_MODE: 
   FLOWS: "flows.json"
 
 # -- Configures service settings for the chart.

@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: home-assistant-pvc
-  namespace: home-assistant
+  name: node-red-pvc
+  namespace: node-red
 spec:
   storageClassName: nfs-client
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 15Gi
+      storage: 2Gi

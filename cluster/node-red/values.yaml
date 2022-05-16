@@ -43,7 +43,7 @@ persistence:
   data:
     enabled: true
     existingClaim: node-red-pvc
-#    mountPath: /data
+    mountPath: /data
 
 podAnnotations:
   backup.velero.io/backup-volumes: data

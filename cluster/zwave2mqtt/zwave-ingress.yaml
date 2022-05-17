@@ -18,4 +18,4 @@ spec:
           service:
             name: zwave2mqtt
             port: 
-              name: http
+              number: 8091

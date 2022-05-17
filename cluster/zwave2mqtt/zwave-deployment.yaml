@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: zwave2mqtt
   labels:
+    app: zwave2mqtt
+    name: zwave2mqtt
     app.kubernetes.io/name: zwave2mqtt
     io.kompose.service: zwave2mqtt
 spec:

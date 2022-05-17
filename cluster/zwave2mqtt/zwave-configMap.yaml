@@ -3,5 +3,63 @@ kind: ConfigMap
 metadata:
   name: zwave-config-file
 data:
-  settings.json: |
+  xsettings.json: |
    {"mqtt":{"name":"Zwavejs2Mqtt","host":"192.168.42.10","port":1883,"qos":1,"prefix":"zwave","reconnectPeriod":3000,"retain":true,"clean":true,"auth":false,"_ca":"","ca":"","_cert":"","cert":"","_key":"","key":""},"gateway":{"type":0,"plugins":[],"authEnabled":false,"payloadType":0,"nodeNames":true,"hassDiscovery":false,"discoveryPrefix":"homeassistant","logEnabled":true,"logLevel":"silly","logToFile":true,"values":[],"sendEvents":true,"includeNodeInfo":true,"ignoreLoc":true,"publishNodeDetails":true,"retainedDiscovery":false},"zwave":{"port":"/dev/serial/by-id/usb-0658_0200-if00","commandsTimeout":30,"logLevel":"silly","logEnabled":true,"securityKeys":{"S2_Unauthenticated":"","S2_Authenticated":"","S2_AccessControl":"","S0_Legacy":""},"deviceConfigPriorityDir":"/usr/src/app/store/config","logToFile":true,"serverEnabled":true,"serverServiceDiscoveryDisabled":false,"enableSoftReset":true,"enableStatistics":true,"serverPort":3030,"disclaimerVersion":1}}
+  settings.json: |
+    {
+      "mqtt": {
+        "name": "Zwavejs2Mqtt",
+        "host": "192.168.42.10",
+        "port": 1883,
+        "qos": 1,
+        "prefix": "zwave",
+        "reconnectPeriod": 3000,
+        "retain": true,
+        "clean": true,
+        "auth": false,
+        "_ca": "",
+        "ca": "",
+        "_cert": "",
+        "cert": "",
+        "_key": "",
+        "key": ""
+      },
+      "gateway": {
+        "type": 0,
+        "plugins": [],
+        "authEnabled": false,
+        "payloadType": 0,
+        "nodeNames": true,
+        "hassDiscovery": false,
+        "discoveryPrefix": "homeassistant",
+        "logEnabled": true,
+        "logLevel": "silly",
+        "logToFile": true,
+        "values": [],
+        "sendEvents": true,
+        "includeNodeInfo": true,
+        "ignoreLoc": true,
+        "publishNodeDetails": true,
+        "retainedDiscovery": false
+      },
+      "zwave": {
+        "port": "/dev/serial/by-id/usb-0658_0200-if00",
+        "commandsTimeout": 30,
+        "logLevel": "silly",
+        "logEnabled": true,
+        "securityKeys": {
+          "S2_Unauthenticated": "",
+          "S2_Authenticated": "",
+          "S2_AccessControl": "",
+          "S0_Legacy": ""
+        },
+        "deviceConfigPriorityDir": "/usr/src/app/store/config",
+        "logToFile": true,
+        "serverEnabled": true,
+        "serverServiceDiscoveryDisabled": false,
+        "enableSoftReset": true,
+        "enableStatistics": true,
+        "serverPort": 3030,
+        "disclaimerVersion": 1
+      }
+    }

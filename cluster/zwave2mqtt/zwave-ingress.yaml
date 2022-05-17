@@ -3,6 +3,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: zwave
+  labels:
+    app: zwave2mqtt
+    name: zwave2mqtt
+  namespace: zwave2mqtt
 spec:
   rules:
   - host: zwave.thomitzek.net

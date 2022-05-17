@@ -9,4 +9,4 @@ spec:
     port: 80
     targetPort: http
   selector:
-    name: zwave
+    name: zwave2mqtt

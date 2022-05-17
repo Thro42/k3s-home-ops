@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zwave2mqtt
+  namespace: argocd
+spec:
+  project: home
+
+  source:
+    repoURL: https://github.com/Thro42/k3s-home-ops.git
+    targetRevision: HEAD
+    path: cluster/zwave2mqtt
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: zwave2mqtt
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true

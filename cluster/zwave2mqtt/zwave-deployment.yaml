@@ -55,8 +55,8 @@ spec:
           name: zwavestick
         - mountPath: /usr/src/app/store
           name: zwave-pvc
-        # - mountPath: /usr/src/app/store/settings.json <-- if putting your settings.json in a secret
-        #   name: config
+        - mountPath: /usr/src/app/store/settings.json
+          name: config
         #   readOnly: true
         #   subPath: settings.json
 #      nodeSelector:
@@ -64,7 +64,9 @@ spec:
 #        - {key: "feature.node.kubernetes.io/custom-zwave", operator: In, values: ["true"]}
 #        kubernetes.io/hostname: stick1 #<--- the name of your cluster node that the zwave usb stick in
       volumes:
-      # - name: config <-- if putting your settings.json in a secret
+      - name: config 
+        configMap:
+          name: zwave-config-file
       #   secret:
       #     defaultMode: 420
       #     secretName: zwave2mqtt

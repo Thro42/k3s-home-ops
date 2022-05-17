@@ -16,7 +16,6 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: zwave2mqtt
-        ingres: "false"
         name: zwave2mqtt
     spec:
       containers:

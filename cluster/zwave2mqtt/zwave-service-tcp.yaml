@@ -5,6 +5,9 @@ metadata:
     metallb.universe.tf/address-pool: server
   name: zwave2mqtt-tcp
   namespace: zwave2mqtt
+  labels:
+    app: zwave2mqtt
+    name: zwave2mqtt
 spec:
   ports:
     - name: http

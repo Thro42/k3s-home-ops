@@ -9,4 +9,5 @@ spec:
     port: 80
     targetPort: http
   selector:
-    name: zwave2mqtt
+    app.kubernetes.io/name: zwave2mqtt
+#    name: zwave2mqtt

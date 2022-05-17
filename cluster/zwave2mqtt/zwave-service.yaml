@@ -15,5 +15,5 @@ spec:
     protocol: TCP
   selector:
     app.kubernetes.io/name: zwave2mqtt
-    app.kubernetes.io/ingres: "true"
+    ingres: "true"
 #    name: zwave2mqtt

@@ -8,6 +8,8 @@ metadata:
     name: zwave2mqtt
   namespace: zwave2mqtt
 spec:
+  selector:
+    ingres: "true"
   rules:
   - host: zwave.thomitzek.net
     http:
@@ -19,6 +21,4 @@ spec:
             name: zwave2mqtt
             port: 
               number: 80
-    selector:
-      app.kubernetes.io/ingres: "true"
 

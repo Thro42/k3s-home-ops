@@ -19,6 +19,6 @@ spec:
             name: zwave2mqtt
             port: 
               number: 80
-  selector:
-    app.kubernetes.io/ingres: "true"
+    selector:
+      app.kubernetes.io/ingres: "true"
 

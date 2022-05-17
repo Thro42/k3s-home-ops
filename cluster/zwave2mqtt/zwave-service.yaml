@@ -7,8 +7,6 @@ metadata:
   labels:
     app: zwave2mqtt
     name: zwave2mqtt
-  annotations:
-    metallb.universe.tf/address-pool: server
 spec:
   ports:
   - name: http

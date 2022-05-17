@@ -1,5 +1,5 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: zwave2mqtt
@@ -12,6 +12,8 @@ spec:
   - host: zwave.thomitzek.net
     http:
       paths:
-      - backend:
+      - pathType: Prefix
+        path: "/"
+        backend:
           serviceName: zwave2mqtt
           servicePort: http

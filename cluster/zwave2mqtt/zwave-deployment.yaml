@@ -55,8 +55,8 @@ spec:
           name: zwavestick
         - mountPath: /usr/src/app/store
           name: zwave-pvc
-        - mountPath: /usr/src/app/store/settings.json
-          name: config
+#        - mountPath: /usr/src/app/store/settings.json
+#          name: config
         #   readOnly: true
         #   subPath: settings.json
 #      nodeSelector:

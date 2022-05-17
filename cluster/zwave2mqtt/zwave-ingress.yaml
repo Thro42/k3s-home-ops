@@ -18,4 +18,4 @@ spec:
           service:
             name: zwave2mqtt
             port: 
-              number: http
+              name: http

@@ -53,9 +53,9 @@ spec:
         #   name: config
         #   readOnly: true
         #   subPath: settings.json
-      nodeSelector:
-      - matchExpressions:
-        - {key: "feature.node.kubernetes.io/custom-zwave", operator: In, values: ["true"]}
+#      nodeSelector:
+#      - matchExpressions:
+#        - {key: "feature.node.kubernetes.io/custom-zwave", operator: In, values: ["true"]}
 #        kubernetes.io/hostname: stick1 #<--- the name of your cluster node that the zwave usb stick in
       volumes:
       # - name: config <-- if putting your settings.json in a secret
@@ -67,8 +67,8 @@ spec:
           path: /dev/serial/by-id/usb-0658_0200-if00
           type: CharDevice
       - name: zwave-pvc
-          persistentVolumeClaim:
-            claimName: zwave-pvc
+        persistentVolumeClaim:
+          claimName: zwave-pvc
 # -- Affinity constraint rules to place the Pod on a specific node.
       affinity: 
         nodeAffinity:

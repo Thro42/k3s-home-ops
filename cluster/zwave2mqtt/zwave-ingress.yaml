@@ -8,8 +8,6 @@ metadata:
     name: zwave2mqtt
   namespace: zwave2mqtt
 spec:
-  selector:
-    ingres: "true"
   rules:
   - host: zwave.thomitzek.net
     http:

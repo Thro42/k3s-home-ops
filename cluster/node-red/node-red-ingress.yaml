@@ -18,4 +18,4 @@ spec:
           service:
             name: node-red
             port: 
-              number: 1880
+              number: 80

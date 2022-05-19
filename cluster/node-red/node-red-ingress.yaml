@@ -16,6 +16,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: node-red-tcp
+            name: node-red
             port: 
-              number: 80
+              number: 1880

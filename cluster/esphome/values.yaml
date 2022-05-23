@@ -1,5 +1,6 @@
 image:
   repository: esphome/esphome
+  pullPolicy: IfNotPresent
   tag: 2022.5.0
 
 env:

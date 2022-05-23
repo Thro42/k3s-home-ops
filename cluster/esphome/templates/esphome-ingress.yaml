@@ -6,7 +6,7 @@ metadata:
   labels:
     app: esphome
     name: esphome
-  namespace: node-red
+  namespace: esphome
 spec:
   rules:
   - host: esphome.thomitzek.net

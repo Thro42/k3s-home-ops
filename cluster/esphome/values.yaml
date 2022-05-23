@@ -1,13 +1,26 @@
 image:
   repository: esphome/esphome
   tag: 2022.5.0
+
 env:
   ESPHOME_DASHBOARD_USE_PING: true
+  # ESPHOME_DASHBOARD_RELATIVE_URL: "/"
+  # ESPHOME_QUICKWIZARD:
+  # ESPHOME_IS_HASSIO:
+  # DISABLE_HA_AUTHENTICATION:
+  # USERNAME:
+  # PASSWORD:
+service:
+  main:
+    ports:
+      http:
+        port: 6052
+
 ingress:
   main:
     enabled: true
-#    annotations:
-#      external-dns.alpha.kubernetes.io/target: ${DOMAIN}
+    annotations:
+      external-dns.alpha.kubernetes.io/target: thomitzek.net
 #      cert-manager.io/cluster-issuer: letsencrypt-production
 #      nginx.ingress.kubernetes.io/auth-url: https://auth.${DOMAIN}/oauth2/auth
 #      nginx.ingress.kubernetes.io/auth-signin: https://auth.${DOMAIN}/oauth2/start

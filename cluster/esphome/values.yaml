@@ -7,7 +7,7 @@ env:
   ESPHOME_DASHBOARD_USE_PING: true
   # ESPHOME_DASHBOARD_RELATIVE_URL: "/"
   # ESPHOME_QUICKWIZARD:
-  # ESPHOME_IS_HASSIO:
+  ESPHOME_IS_HASSIO: true
   # DISABLE_HA_AUTHENTICATION:
   # USERNAME:
   # PASSWORD:
@@ -40,6 +40,7 @@ persistence:
   config:
     enabled: true
     existingClaim: esphome-pvc
+
 resources:
   requests:
     cpu: 100m

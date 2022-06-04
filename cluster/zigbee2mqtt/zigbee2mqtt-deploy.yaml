@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+    app.kubernetes.io/name: zigbee2mqtt
     app: zigbee2mqtt
   name: zigbee2mqtt
 spec:

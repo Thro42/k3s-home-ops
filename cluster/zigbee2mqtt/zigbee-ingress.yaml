@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: zigbee2mqtt
+  labels:
+    app: zigbee2mqtt
+    name: zigbee2mqtt
+  namespace: zigbee2mqtt
+spec:
+  rules:
+  - host: zigbee.thomitzek.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: zigbee2mqtt-tcp
+            port: 
+              number: 8088

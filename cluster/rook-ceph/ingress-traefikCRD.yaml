@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: rook-ceph-dashboard
-  namespace: default
+  namespace: rook-ceph
   labels:
     app.kubernetes.io/name: rook-ceph
 spec:

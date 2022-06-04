@@ -9,7 +9,7 @@ metadata:
   namespace: zigbee2mqtt
 spec:
   rules:
-  - host: zigbee.thomitzek.net
+  - host: zigbee2mqtt.thomitzek.net
     http:
       paths:
       - pathType: Prefix

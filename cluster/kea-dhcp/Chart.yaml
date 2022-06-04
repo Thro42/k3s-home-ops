@@ -1,0 +1,8 @@
+name: kea-dhcp
+apiVersion: v2
+version: 1.0.0
+appVersion: 2.1.2
+dependencies:
+  - name: kea-dhcp
+    repository: http://charts.glants.xyz
+    version: 0.4.2

@@ -29,7 +29,9 @@ spec:
           - name: ZIGBEE2MQTT_CONFIG_MQTT_SERVER # optional - can also be configured in the configuration.yaml in the configmap
             value: "mqtt://192.168.42.10"
         securityContext:
+          allowPrivilegeEscalation: true
           privileged: true
+        resources: {}
         ports:
           - name: http
             containerPort: 8080

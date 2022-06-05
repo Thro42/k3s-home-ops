@@ -830,7 +830,6 @@ spec:
       description: Specify the labels
       jsonPath: .spec.labels
 ---
----
 apiVersion: v1
 kind: ConfigMap
 metadata:

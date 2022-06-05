@@ -10,21 +10,30 @@ spec:
     spec:
       # renovate: registryUrl=https://charts.rook.io/release
       chart: rook-ceph
-      version: v1.9.4
+      version: v1.9.2
       sourceRef:
         kind: HelmRepository
         name: rook-ceph-charts
         namespace: flux-system
+      interval: 5m
   values:
     crds:
       enabled: false
     csi:
-      enableCephfsDriver: false
-      enableCephfsSnapshotter: false
+      kubeletDirPath: /var/lib/kubelet
+      enableGrpcMetrics: true
+      enableCSIHostNetwork: true
+      pluginTolerations:
+        - key: "arm"
+          operator: "Exists"
+        - key: "node-role.kubernetes.io/master"
+          operator: "Exists"
     resources:
+      limits:
+        cpu: null
+        memory: 1Gi
       requests:
         cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1000m
-        memory: 256Mi
+        memory: 500Mi
+    monitoring:
+      enabled: true

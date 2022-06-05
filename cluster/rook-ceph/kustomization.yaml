@@ -6,7 +6,7 @@ resources:
   - chart
   - cluster
   - crds
-  - monitoring
+#  - monitoring
   - dashboard
   - toolbox
   - external-snapshotter

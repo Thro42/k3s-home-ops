@@ -14,6 +14,10 @@ spec:
     - name: websocket
       port: 3030
       protocol: TCP
+    - name: hue
+      port: 80
+      targetPort: 80
+      protocol: TCP
   selector:
     app.kubernetes.io/name: home-assistant
   type: LoadBalancer

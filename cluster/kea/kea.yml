@@ -1,0 +1,279 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dhcp-primary
+  namespace: dhcp
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dhcp-primary
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9405"
+      labels:
+        app: dhcp-primary
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - dhcp-primary
+                    - dhcp-secondary
+              topologyKey: "kubernetes.io/hostname"
+      tolerations:
+      - key: "critical"
+        operator: "Equal"
+        value: "yes"
+        effect: "NoSchedule"
+      hostname: primary
+      subdomain: dhcp-pod
+      containers:
+      - name: dhcpd
+        image: npflan/kea:npf2018
+        command: ["kea-dhcp4"]
+        args: ["-c", "/kea/config/kea-dhcp4.conf"]
+        env:
+        - name: KEA_PIDFILE_DIR
+          value: "/kea/run"
+        volumeMounts:
+          - mountPath: /kea/subnet
+            name: subnet
+          - mountPath: /kea/config
+            name: kea
+          - mountPath: /var/kea/
+            name: backend
+          - mountPath: /kea/socket
+            name: socket
+          - mountPath: /kea/run
+            name: run
+        resources:
+          limits:
+            memory: 2048M
+      - name: dhcpd-control
+        image: npflan/kea:npf2018
+        command: ["kea-ctrl-agent"]
+        args: ["-c", "/kea/config/kea-dhcp4.conf"]
+        volumeMounts:
+          - mountPath: /kea/subnet
+            name: subnet
+          - mountPath: /kea/config
+            name: kea
+          - mountPath: /kea/socket
+            name: socket
+        resources:
+          limits:
+            memory: 256M
+      - name: dhcpd-exporter
+        image: npflan/kea-exporter:golang
+        resources:
+          limits:
+            memory: 32M
+      volumes:
+        - name: socket
+          emptyDir: {}
+        - name: run
+          emptyDir: {}
+        - name: subnet
+          configMap:
+            name: keasubnet
+            items:
+            - key: subnet.conf
+              path: subnet.conf
+        - name: kea
+          configMap:
+            name: kea
+            items:
+            - key: primary.conf
+              path: kea-dhcp4.conf
+            - key: ap-options.conf
+              path: ap-options.conf
+        - name: backend
+          persistentVolumeClaim:
+            claimName: kea-primary-claim
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dhcp-secondary
+  namespace: dhcp
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dhcp-secondary
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9405"
+      labels:
+        app: dhcp-secondary
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - dhcp-primary
+                    - dhcp-secondary
+              topologyKey: "kubernetes.io/hostname"
+      tolerations:
+      - key: "critical"
+        operator: "Equal"
+        value: "yes"
+        effect: "NoSchedule"
+      hostname: secondary
+      subdomain: dhcp-pod
+      containers:
+      - name: dhcpd
+        image: npflan/kea:npf2018
+        command: ["kea-dhcp4"]
+        args: ["-c", "/kea/config/kea-dhcp4.conf"]
+        env:
+        - name: KEA_PIDFILE_DIR
+          value: "/kea/run"
+        volumeMounts:
+          - mountPath: /kea/subnet
+            name: subnet
+          - mountPath: /kea/config
+            name: kea
+          - mountPath: /var/kea/
+            name: backend
+          - mountPath: /kea/socket
+            name: socket
+          - mountPath: /kea/run
+            name: run
+        resources:
+          limits:
+            memory: 2048M
+      - name: dhcpd-control
+        image: npflan/kea:npf2018
+        command: ["kea-ctrl-agent"]
+        args: ["-c", "/kea/config/kea-dhcp4.conf"]
+        volumeMounts:
+          - mountPath: /kea/subnet
+            name: subnet
+          - mountPath: /kea/config
+            name: kea
+          - mountPath: /kea/socket
+            name: socket
+        resources:
+          limits:
+            memory: 256M
+      - name: dhcpd-exporter
+        image: npflan/kea-exporter:golang
+        resources:
+          limits:
+            memory: 32M
+      volumes:
+        - name: socket
+          emptyDir: {}
+        - name: run
+          emptyDir: {}
+        - name: subnet
+          configMap:
+            name: keasubnet
+            items:
+            - key: subnet.conf
+              path: subnet.conf
+        - name: kea
+          configMap:
+            name: kea
+            items:
+            - key: secondary.conf
+              path: kea-dhcp4.conf
+            - key: ap-options.conf
+              path: ap-options.conf
+        - name: backend
+          persistentVolumeClaim:
+            claimName: kea-secondary-claim   
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: dhcp-primary
+  namespace: dhcp
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  type: NodePort
+  externalTrafficPolicy: Local
+  clusterIP: 10.96.6.1
+  selector:
+    app: dhcp-primary
+  ports:
+    - name: dhcp
+      protocol: UDP
+      port: 67
+      targetPort: 67
+    - name: control
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: dhcp-secondary
+  namespace: dhcp
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  type: NodePort
+  externalTrafficPolicy: Local
+  clusterIP: 10.96.6.2
+  selector:
+    app: dhcp-secondary
+  ports:
+    - name: dhcp
+      protocol: UDP
+      port: 67
+      targetPort: 67
+    - name: control
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: kea-primary-claim
+  namespace: dhcp
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  storageClassName: dhcp
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: kea-secondary-claim
+  namespace: dhcp
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  storageClassName: dhcp
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

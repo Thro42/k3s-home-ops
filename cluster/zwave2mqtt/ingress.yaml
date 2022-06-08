@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: zwave2mqtt
+spec:
+  rules:
+    - host: zwave.thomitzek.net
+      http:
+        paths:
+          - backend:
+              serviceName: zwave2mqtt
+              servicePort: http

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zwave2mqtt
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+    - name: websocket
+      port: 3030
+      targetPort: websocket
+  selector:
+    name: zwave2mqtt

@@ -43,7 +43,7 @@ spec:
           image: lscr.io/linuxserver/habridge
           name: habridge
           ports:
-            - containerPort: 8080
+            - containerPort: 80
             - containerPort: 50000
               hostPort: 50000
               protocol: UDP

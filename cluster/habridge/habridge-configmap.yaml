@@ -4,6 +4,6 @@ metadata:
   name: habridge-configmap
   namespace: habridge
 data:
-  habridge_ip: 192.168.2.2
-  ingress_hostname: habridge.domain.my
+  habridge_ip: 192.168.42.18
+  ingress_hostname: habridge.thomitzek.net
   time_zone: Europe/Berlin

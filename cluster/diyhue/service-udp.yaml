@@ -4,7 +4,7 @@ metadata:
   labels:
     metallb.universe.tf/address-pool: server
     metallb.universe.tf/allow-shared-ip: diyhue-svc
-    io.kompose.service: diyhue
+    io.kompose.service: diyhue-udp
   name: diyhue-udp
   namespace: diyhue
 spec:

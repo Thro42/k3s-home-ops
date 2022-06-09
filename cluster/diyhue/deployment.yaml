@@ -16,6 +16,7 @@ spec:
     metadata:
       annotations:
         ovn.kubernetes.io/ip_address: 192.168.42.26
+        ovn.kubernetes.io/ip_pool: 192.168.42.26
       labels:
         io.kompose.network/diyhue: "true"
         io.kompose.service: diyhue

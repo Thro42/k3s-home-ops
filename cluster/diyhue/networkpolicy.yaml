@@ -9,15 +9,6 @@ spec:
         - podSelector:
             matchLabels:
               io.kompose.network/diyhue: "true"
-  ports:
-    - protocol: tcp
-      port: 80
-    - protocol: tcp
-      port: 443
-    - protocol: udp
-      port: 1900
-    - protocol: udp
-      port: 2100
   podSelector:
     matchLabels:
       io.kompose.network/diyhue: "true"

@@ -44,7 +44,7 @@ spec:
           volumeMounts:
             - mountPath: /opt/hue-emulator/export/
               name: diyhue-pvc
-            - mountPath: /opt/hue-emulator/
+            - mountPath: /opt/hue-emulator/config/
               name: diyhue-config-pvc
       restartPolicy: Always
       volumes:

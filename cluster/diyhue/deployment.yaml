@@ -23,6 +23,7 @@ spec:
           name: diyhue
           ports:
             - containerPort: 80
+              hostIP: 192.168.42.26
               hostPort: 80
             - containerPort: 443
               hostPort: 443

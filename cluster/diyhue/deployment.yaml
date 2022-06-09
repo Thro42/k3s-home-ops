@@ -14,11 +14,12 @@ spec:
     type: Recreate
   template:
     metadata:
+      annotations:
+        ovn.kubernetes.io/ip_address: 192.168.42.26
       labels:
         io.kompose.network/diyhue: "true"
         io.kompose.service: diyhue
     spec:
-      publicIP: 192.168.42.26
       containers:
         - image: diyhue/core
           name: diyhue

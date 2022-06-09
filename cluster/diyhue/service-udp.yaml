@@ -9,11 +9,11 @@ metadata:
   namespace: diyhue
 spec:
   ports:
-    - name: "UDP-1900"
+    - name: "UDP1900"
       port: 1900
       protocol: UDP
       targetPort: 1900
-    - name: "UDP-2100"
+    - name: "UDP2100"
       port: 2100
       protocol: UDP
       targetPort: 2100

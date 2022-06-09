@@ -27,8 +27,10 @@ spec:
           args: ["/opt/hue-emulator/HueEmulator3.py --ip 192.168.42.26"]
           name: diyhue
           env:
-            - name: HOST_IP
+            - name: IP
               value: "192.168.42.26"
+            - name: TZ
+              value: "Europe/Berlin"
           ports:
             - containerPort: 80
               hostIP: 192.168.42.26

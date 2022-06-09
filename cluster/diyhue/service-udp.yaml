@@ -7,12 +7,14 @@ metadata:
   namespace: diyhue
 spec:
   ports:
-    - name: "http"
-      port: 80
-      targetPort: 80
-    - name: "https"
-      port: 443
-      targetPort: 443
+    - name: "UDP-1900"
+      port: 1900
+      protocol: UDP
+      targetPort: 1900
+    - name: "UDP-2100"
+      port: 2100
+      protocol: UDP
+      targetPort: 2100
   selector:
     io.kompose.service: diyhue
   type: LoadBalancer

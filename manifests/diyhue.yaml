@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: diyhue-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Thro42/k3s-home-ops.git
+    targetRevision: HEAD
+    path: cluster/diyhue
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: diyhue
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true

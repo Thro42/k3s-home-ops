@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: diyhue
+  name: diyhue
+  namespace: diyhue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: diyhue
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/diyhue: "true"
+        io.kompose.service: diyhue
+    spec:
+      containers:
+        - image: diyhue/core
+          name: diyhue
+          ports:
+            - containerPort: 80
+            - containerPort: 443
+            - containerPort: 1900
+              protocol: UDP
+            - containerPort: 2100
+              protocol: UDP
+          resources: 
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - mountPath: /opt/hue-emulator/export/
+              name: diyhue-pvc
+      restartPolicy: Always
+      volumes:
+        - name: diyhue-pvc
+          persistentVolumeClaim:
+            claimName: diyhue-pvc

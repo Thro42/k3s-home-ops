@@ -1,20 +1,20 @@
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    metallb.universe.tf/address-pool: server
-    metallb.universe.tf/allow-shared-ip: diyhue-svc
-    io.kompose.service: diyhue-tcp
-  name: diyhue-tcp
-  namespace: diyhue
-spec:
-  ports:
-    - name: "http"
-      port: 80
-      targetPort: 80
-    - name: "https"
-      port: 443
-      targetPort: 443
-  selector:
-    io.kompose.service: diyhue
-  type: ClusterIP
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  labels:
+#    metallb.universe.tf/address-pool: server
+#    metallb.universe.tf/allow-shared-ip: diyhue-svc
+#    io.kompose.service: diyhue-tcp
+#  name: diyhue-tcp
+#  namespace: diyhue
+#spec:
+#  ports:
+#    - name: "http"
+#      port: 80
+#      targetPort: 80
+#    - name: "https"
+#      port: 443
+#      targetPort: 443
+#  selector:
+#    io.kompose.service: diyhue
+#  type: ClusterIP

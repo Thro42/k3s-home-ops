@@ -1,21 +1,21 @@
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: diyhue-ingress
-  labels:
-    app: diyhue
-    name: diyhue
-  namespace: diyhue
-spec:
-  rules:
-  - host: diyhue.thomitzek.net
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: diyhue-tcp
-            port: 
-              number: 80
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: diyhue-ingress
+#  labels:
+#    app: diyhue
+#    name: diyhue
+#  namespace: diyhue
+#spec:
+#  rules:
+#  - host: diyhue.thomitzek.net
+#    http:
+#      paths:
+#      - pathType: Prefix
+#        path: "/"
+#        backend:
+#          service:
+#            name: diyhue-tcp
+#            port: 
+#              number: 80

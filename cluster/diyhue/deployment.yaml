@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+    metallb.universe.tf/address-pool: server
+    metallb.universe.tf/allow-shared-ip: diyhue-svc
     io.kompose.service: diyhue
   name: diyhue
   namespace: diyhue
@@ -14,16 +16,16 @@ spec:
     type: Recreate
   template:
     metadata:
-      annotations:
-        ovn.kubernetes.io/ip_address: 192.168.42.26
-        ovn.kubernetes.io/ip_pool: 192.168.42.26
       labels:
+        metallb.universe.tf/address-pool: server
+        metallb.universe.tf/allow-shared-ip: diyhue-svc
         io.kompose.network/diyhue: "true"
         io.kompose.service: diyhue
     spec:
       containers:
         - image: diyhue/core
           name: diyhue
+          loadBalancerIP: 192.168.42.26
           ports:
             - containerPort: 80
               hostIP: 192.168.42.26

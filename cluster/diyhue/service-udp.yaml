@@ -19,5 +19,8 @@ spec:
       targetPort: 2100
   selector:
     io.kompose.service: diyhue
-  type: LoadBalancer
-  loadBalancerIP: 192.168.42.26
+  type: NodePort
+  externalIPs:
+    - 192.168.42.26
+#  type: LoadBalancer
+#  loadBalancerIP: 192.168.42.26

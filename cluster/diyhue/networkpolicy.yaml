@@ -1,14 +1,14 @@
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: diyhue
-  namespace: diyhue
-spec:
-  ingress:
-    - from:
-        - podSelector:
-            matchLabels:
-              io.kompose.network/diyhue: "true"
-  podSelector:
-    matchLabels:
-      io.kompose.network/diyhue: "true"
+#apiVersion: networking.k8s.io/v1
+#kind: NetworkPolicy
+#metadata:
+#  name: diyhue
+#  namespace: diyhue
+#spec:
+#  ingress:
+#    - from:
+#        - podSelector:
+#            matchLabels:
+#              io.kompose.network/diyhue: "true"
+#  podSelector:
+#    matchLabels:
+#      io.kompose.network/diyhue: "true"

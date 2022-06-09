@@ -16,6 +16,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: diyhue
+            name: diyhue-tcp
             port: 
               number: 80

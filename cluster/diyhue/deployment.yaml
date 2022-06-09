@@ -51,3 +51,6 @@ spec:
         - name: diyhue-pvc
           persistentVolumeClaim:
             claimName: diyhue-pvc
+        - name: diyhue-config-pvc
+          persistentVolumeClaim:
+            claimName: diyhue-config-pvc

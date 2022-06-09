@@ -24,7 +24,11 @@ spec:
     spec:
       containers:
         - image: diyhue/core
+          args: ["HOST_IP", "192.168.42.26"]
           name: diyhue
+          env:
+            - name: HOST_IP
+              value: "192.168.42.26"
           ports:
             - containerPort: 80
               hostIP: 192.168.42.26

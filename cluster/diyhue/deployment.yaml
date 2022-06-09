@@ -47,7 +47,7 @@ spec:
             - mountPath: /opt/hue-emulator/config/
               name: diyhue-config-pvc
       restartPolicy: Always
-      hostNetwork: true
+      hostNetwork: false
       volumes:
         - name: diyhue-pvc
           persistentVolumeClaim:

@@ -18,6 +18,7 @@ spec:
         io.kompose.network/diyhue: "true"
         io.kompose.service: diyhue
     spec:
+      publicIP: 192.168.42.26
       containers:
         - image: diyhue/core
           name: diyhue
@@ -26,11 +27,14 @@ spec:
               hostIP: 192.168.42.26
               hostPort: 80
             - containerPort: 443
+              hostIP: 192.168.42.26
               hostPort: 443
             - containerPort: 1900
+              hostIP: 192.168.42.26
               hostPort: 1900
               protocol: UDP
             - containerPort: 2100
+              hostIP: 192.168.42.26
               hostPort: 2100
               protocol: UDP
           resources: 

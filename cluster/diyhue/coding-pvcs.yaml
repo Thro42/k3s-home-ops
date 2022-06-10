@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    io.kompose.service: configManager
+    io.kompose.service: configmanager
   name: configmanager
   namespace: diyhue
 spec:
@@ -18,7 +18,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    io.kompose.service: flaskUI
+    io.kompose.service: flaskui
   name: flaskui
   namespace: diyhue
 spec:

@@ -27,7 +27,7 @@ spec:
 #          args: ["/opt/hue-emulator/HueEmulator3.py --ip 192.168.42.26"]
           name: diyhue
           env:
-            - name: BIND-IP
+            - name: BIND_IP
               value: "192.168.42.26"
             - name: DOCKER
               value: "true"

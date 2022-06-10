@@ -63,6 +63,10 @@ spec:
               name: diyhue-pvc
             - mountPath: /opt/hue-emulator/config/
               name: diyhue-config-pvc
+            - mountPath: /opt/hue-emulator/configManager/
+              name: configmanager
+            - mountPath: /opt/hue-emulator/flaskUI/
+              name: flaskui
       restartPolicy: Always
       hostNetwork: false
       volumes:
@@ -72,3 +76,9 @@ spec:
         - name: diyhue-config-pvc
           persistentVolumeClaim:
             claimName: diyhue-config-pvc
+        - name: configmanager
+          persistentVolumeClaim:
+            claimName: configmanager
+        - name: flaskui
+          persistentVolumeClaim:
+            claimName: flaskui

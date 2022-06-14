@@ -30,6 +30,8 @@ spec:
             #- name: HUE_IP
             - name: IP
               value: "192.168.42.26"
+            - name: MAC
+              value: E4:5F:01:0B:FE:20
             - name: DOCKER
               value: "true"
             - name: TZ

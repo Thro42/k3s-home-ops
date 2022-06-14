@@ -11,6 +11,10 @@ spec:
       port: 1880
       targetPort: 1880
       protocol: TCP
+    - name: hue
+      port: 80
+      targetPort: 80
+      protocol: TCP
   selector:
     io.kompose.service: node-red
   type: LoadBalancer

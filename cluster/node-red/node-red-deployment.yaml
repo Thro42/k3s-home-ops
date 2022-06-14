@@ -40,12 +40,12 @@ spec:
             - containerPort: 5683
               protocol: UDP
           resources: {}
+          securityContext:
+            privileged: true
           volumeMounts:
             - mountPath: /data
               name: node-red-pvc
       restartPolicy: Always
-      securityContext:
-        privileged: true
       volumes:
         - name: node-red-pvc
           persistentVolumeClaim:

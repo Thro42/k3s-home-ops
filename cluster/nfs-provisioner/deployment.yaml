@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nfs-client-provisioner
+  name: nfs-nas-provisioner
   labels:
-    app: nfs-client-provisioner
+    app: nfs-nas-provisioner
   # replace with namespace where provisioner is deployed
 #  namespace: default
   namespace: nas-storage
@@ -13,18 +13,18 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: nfs-client-provisioner
+      app: nfs-nas-provisioner
   template:
     metadata:
       labels:
-        app: nfs-client-provisioner
+        app: nfs-nas-provisioner
     spec:
-      serviceAccountName: nfs-client-provisioner
+      serviceAccountName: nfs-nas-provisioner
       containers:
-        - name: nfs-client-provisioner
+        - name: nfs-nas-provisioner
           image: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.16
           volumeMounts:
-            - name: nfs-client-root
+            - name: nfs-nas-root
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
@@ -34,7 +34,7 @@ spec:
             - name: NFS_PATH
               value: /volume1/cluster
       volumes:
-        - name: nfs-client-root
+        - name: nfs-nas-root
           nfs:
             server: 192.168.42.4
             path: /volume1/cluster

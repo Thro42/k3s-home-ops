@@ -10,6 +10,10 @@ spec:
     repoURL: https://github.com/Thro42/k3s-home-ops.git
     targetRevision: HEAD
     path: cluster/nfs-provisioner
+    helm:
+      releaseName: nfs-provisioner
+      valueFiles:
+        - "values.yaml"
 
   destination: 
     server: https://kubernetes.default.svc

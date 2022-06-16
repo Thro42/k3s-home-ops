@@ -25,6 +25,8 @@ service:
       hue:
         protocol: HTTP
         port: 80
+      postgres:
+        port: 5432
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
@@ -144,32 +146,32 @@ postgresql:
   storageClass: "nfs-client"
   global:
     storageClass: "nfs-client"
-#  postgresqlDataDir: "/data/pgdata"
-#  primary:
-#    podSecurityContext:
-#      enabled: true
-#      fsGroup: 1000
-#    containerSecurityContext:
-#      enabled: true
-#      runAsUser: 1000
-#  readReplicas:
-#    podSecurityContext:
-#      enabled: true
-#      fsGroup: 1000
-#    containerSecurityContext:
-#      enabled: true
-#      runAsUser: 1000
-#  metrics:
-#    containerSecurityContext:
-#      enabled: true
-#      runAsUser: 1000
-#      runAsNonRoot: true
+  postgresqlDataDir: /bitnami/postgresql/data
+  primary:
+    podSecurityContext:
+      enabled: true
+      fsGroup: 1001
+    containerSecurityContext:
+      enabled: true
+      runAsUser: 1001
+  readReplicas:
+    podSecurityContext:
+      enabled: true
+      fsGroup: 1001
+    containerSecurityContext:
+      enabled: true
+      runAsUser: 1001
+  metrics:
+    containerSecurityContext:
+      enabled: true
+      runAsUser: 1001
+      runAsNonRoot: true
   persistence:
     enabled: true
     existingClaim: "postgresql-pvc"
     storageClass: "nfs-client"
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
 # -- Enable and configure influxdb database subchart under this key.
 #    For more options see [influxdb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/influxdb)
 # @default -- See values.yaml

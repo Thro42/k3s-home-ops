@@ -5,5 +5,5 @@ metadata:
   namespace: calibre-web
 data:
   calibre_ip: 192.168.42.1
-  ingress_hostname: calibre.domain.my
+  ingress_hostname: calibre.thomitzek.net
   time_zone: Europe/Berlin

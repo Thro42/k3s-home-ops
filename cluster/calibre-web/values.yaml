@@ -46,7 +46,7 @@ ingress:
   main:
     enabled: true
     hosts: 
-      - host: calibre.domain.my
+      - host: calibre.thomitzek.net
         paths:
           - path: /
             pathType: Prefix

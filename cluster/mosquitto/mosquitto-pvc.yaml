@@ -6,7 +6,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   volumeMode: Block
-  storageClassName: longhorn-static
+  storageClassName: longhorn
   volumeName: mosquitto_pv
   resources:
     requests:

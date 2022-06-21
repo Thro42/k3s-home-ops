@@ -24,7 +24,7 @@ spec:
             - containerPort: 9001
           resources: {}
           volumeMounts:
-            - mountPath: /mosquitto/
+            - mountPath: /mosquitto
               name: mosquitto-pvc
       restartPolicy: Always
       volumes:

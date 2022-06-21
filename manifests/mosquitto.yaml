@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: http://git.thomitzek.net:3000/thro42/home-ops.git
+    repoURL: https://github.com/Thro42/k3s-home-ops.git
     targetRevision: HEAD
     path: cluster/mosquitto
   destination: 

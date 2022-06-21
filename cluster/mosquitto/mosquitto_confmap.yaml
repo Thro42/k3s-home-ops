@@ -3,3 +3,5 @@ kind: ConfigMap
 metadata:
   name: mosquitto-configmap
   namespace: mosquitto
+data:
+  mosquitto.conf: |-

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+     net.ebt.service: mosquitto
+  name: mosquitto
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+       net.ebt.service: mosquitto
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+         net.ebt.service: mosquitto
+    spec:
+      containers:
+        - image: eclipse-mosquitto
+          name: mosquitto
+          ports:
+            - containerPort: 1883
+            - containerPort: 9001
+          resources: {}
+          volumeMounts:
+            - mountPath: /mosquitto/
+              name: mosquitto-pvc
+      restartPolicy: Always
+      volumes:
+        - name: mosquitto-pvc
+          persistentVolumeClaim:
+            claimName: mosquitto-pvc

@@ -26,8 +26,13 @@ spec:
           volumeMounts:
             - mountPath: /mosquitto
               name: mosquitto-pvc
+            - mountPath: /mosquitto/config/mosquitto.conf
+              name: mosquitto-configmap
       restartPolicy: Always
       volumes:
         - name: mosquitto-pvc
           persistentVolumeClaim:
             claimName: mosquitto-pvc
+        - name: mosquitto-configmap
+          configMap:
+            name: mosquitto-configmap

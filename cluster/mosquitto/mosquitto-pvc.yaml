@@ -7,7 +7,7 @@ spec:
     - ReadWriteOnce
   volumeMode: Block
   storageClassName: longhorn
-  volumeName: mosquitto_pv
+  volumeName: mosquitto-pv
   resources:
     requests:
       storage: 8Gi

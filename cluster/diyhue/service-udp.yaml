@@ -1,26 +1,26 @@
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  labels:
-#    metallb.universe.tf/address-pool: server
-#    metallb.universe.tf/allow-shared-ip: diyhue-svc
-#    io.kompose.service: diyhue-udp
-#  name: diyhue-udp
-#  namespace: diyhue
-#spec:
-#  ports:
-#    - name: "udp1900"
-#      port: 1900
-#      protocol: UDP
-#      targetPort: 1900
-#    - name: "udp2100"
-#      port: 2100
-#      protocol: UDP
-#      targetPort: 2100
-#  selector:
-#    io.kompose.service: diyhue
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    metallb.universe.tf/address-pool: server
+    metallb.universe.tf/allow-shared-ip: diyhue-svc
+    io.kompose.service: diyhue-udp
+  name: diyhue-udp
+  namespace: diyhue
+spec:
+  ports:
+    - name: "udp1900"
+      port: 1900
+      protocol: UDP
+      targetPort: 1900
+    - name: "udp2100"
+      port: 2100
+      protocol: UDP
+      targetPort: 2100
+  selector:
+    io.kompose.service: diyhue
 #  type: NodePort
 #  externalIPs:
 #    - 192.168.42.26
-#  type: LoadBalancer
-#  loadBalancerIP: 192.168.42.26
+  type: LoadBalancer
+  loadBalancerIP: 192.168.42.26

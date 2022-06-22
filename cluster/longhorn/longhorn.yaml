@@ -90,6 +90,8 @@ data:
       numberOfReplicas: "3"
       staleReplicaTimeout: "30"
       fromBackup: ""
+      diskSelector: "ssd,fast"
+      nodeSelector: "storage,fast"
       fsType: "ext4"
       dataLocality: "disabled"
 ---

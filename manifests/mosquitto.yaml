@@ -13,7 +13,9 @@ spec:
   destination: 
     server: https://kubernetes.default.svc
     namespace: mosquitto
-
+  ignoreDifferences:
+    - group: ""
+      kind: ConfigMap
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

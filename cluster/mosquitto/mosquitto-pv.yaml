@@ -17,7 +17,7 @@ spec:
       numberOfReplicas: '3'
       staleReplicaTimeout: '2880'
     volumeHandle:  mosquitto-pv
-  claimRef:
-    kind: PersistentVolumeClaim
-    namespace: mosquitto
-    name: mosquitto-pvc
+#  claimRef:
+#    kind: PersistentVolumeClaim
+#    namespace: mosquitto
+#    name: mosquitto-pvc

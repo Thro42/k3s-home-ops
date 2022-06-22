@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: longhorn
+  storageClassName: longhorn-static
   csi:
     driver: driver.longhorn.io
     fsType: ext4
@@ -17,7 +17,7 @@ spec:
       numberOfReplicas: '3'
       staleReplicaTimeout: '2880'
     volumeHandle:  mosquitto-pv
-#  claimRef:
-#    kind: PersistentVolumeClaim
-#    namespace: mosquitto
-#    name: mosquitto-pvc
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: mosquitto
+    name: mosquitto-pvc

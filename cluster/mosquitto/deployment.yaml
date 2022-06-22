@@ -22,7 +22,13 @@ spec:
           ports:
             - containerPort: 1883
             - containerPort: 9001
-          resources: {}
+          resources: 
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
           volumeMounts:
             - mountPath: /mosquitto
               name: mosquitto-pvc

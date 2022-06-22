@@ -14,8 +14,10 @@ spec:
     server: https://kubernetes.default.svc
     namespace: mosquitto
   ignoreDifferences:
-    - group: ""
+    - group: "*"
       kind: ConfigMap
+      jsonPointers:
+      - /
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  labels:
+     net.ebt.app: mosquitto
   name: mosquitto-configmap
   namespace: mosquitto
 data:

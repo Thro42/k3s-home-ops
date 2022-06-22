@@ -36,3 +36,4 @@ spec:
         - name: mosquitto-configmap
           configMap:
             name: mosquitto-configmap
+            defaultMode: 0777

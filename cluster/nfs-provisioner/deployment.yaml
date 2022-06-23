@@ -24,7 +24,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - {key: "node-role.kubernetes.io/storag", operator: In, values: ["true"]}
+              - {key: "node-role.kubernetes.io/storage", operator: In, values: ["true"]}
       serviceAccountName: nfs-nas-provisioner
       containers:
         - name: nfs-nas-provisioner

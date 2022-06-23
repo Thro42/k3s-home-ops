@@ -33,6 +33,13 @@ spec:
               value: 192.168.42.4
             - name: NFS_PATH
               value: /volume1/cluster
+          resources:
+            limits:
+              cpu: "1"
+              memory: 512Mi
+            requests:
+              cpu: "1"
+              memory: 400Mi
       volumes:
         - name: nfs-nas-root
           nfs:

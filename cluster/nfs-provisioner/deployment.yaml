@@ -44,9 +44,9 @@ spec:
             - name: NFS_PATH
               value: /volume1/cluster
             - name: UID
-              value: 1001
+              value: "1001"
             - name: GID
-              value: 1001
+              value: "1001"
           resources:
             limits:
               cpu: "1"

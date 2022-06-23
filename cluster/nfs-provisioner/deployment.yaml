@@ -19,6 +19,12 @@ spec:
       labels:
         app: nfs-nas-provisioner
     spec:
+      affinity: 
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - {key: "node-role.kubernetes.io/storag", operator: In, values: ["true"]}
       serviceAccountName: nfs-nas-provisioner
       containers:
         - name: nfs-nas-provisioner
@@ -45,9 +51,3 @@ spec:
           nfs:
             server: 192.168.42.4
             path: /volume1/cluster
-    affinity: 
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - {key: "node-role.kubernetes.io/storag", operator: In, values: ["true"]}

@@ -7,6 +7,10 @@ metadata:
   # replace with namespace where provisioner is deployed
 #  namespace: default
   namespace: nas-storage
+  annotations:
+   nfs.io/createUID: "1000"
+   nfs.io/createGID: "1000"
+   nfs.io/createMode: "0755"
 spec:
   replicas: 1
   strategy:

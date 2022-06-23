@@ -3,6 +3,10 @@ kind: StorageClass
 metadata:
   namespace: nas-storage
   name: nfs-nas
+  annotations:
+   nfs.io/createUID: "1000"
+   nfs.io/createGID: "1000"
+   nfs.io/createMode: "0755"
 provisioner: k8s-sigs.io/nfs-subdir-external-provisioner # or choose another name, must match deployment's env PROVISIONER_NAME'
 parameters:
   archiveOnDelete: "false"

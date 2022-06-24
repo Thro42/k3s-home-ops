@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    net.ebt.service: pihole
+  name: pihole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      net.ebt.service: pihole
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        net.ebt.service: pihole
+    spec:
+      containers:
+        - env:
+            - name: TZ
+              value: Europe/Berlin
+          image: pihole/pihole:latest
+          name: pihole
+          ports:
+            - containerPort: 53
+            - containerPort: 53
+              protocol: UDP
+            - containerPort: 67
+              protocol: UDP
+            - containerPort: 80
+          resources: 
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          volumeMounts:
+            - mountPath: /etc/pihole
+              name: pihole-pvc
+            - mountPath: /etc/dnsmasq.d
+              name: pihole-dnsmasq
+      restartPolicy: Always
+      volumes:
+        - name: pihole-pvc
+          persistentVolumeClaim:
+            claimName: piihole-pvc
+        - name: pihole-dnsmasq
+          configMap:
+            claimName: pihole-dnsmasq
+            defaultMode: 0777

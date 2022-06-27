@@ -57,6 +57,9 @@ kind: ConfigMap
 metadata:
   name: longhorn-default-setting
   namespace: longhorn-system
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -70,6 +73,9 @@ kind: ConfigMap
 metadata:
   name: longhorn-storageclass
   namespace: longhorn-system
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn

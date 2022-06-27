@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    net.ebt.service: pihole
-  name: pihole
+    net.ebt.service: pihole-udp
+  name: pihole-udp
   annotations:
     metallb.universe.tf/address-pool: pihole
     metallb.universe.tf/allow-shared-ip: pihole-svc

@@ -148,9 +148,9 @@ postgresql:
     storageClass: "nfs-client"
   postgresqlDataDir: /bitnami/postgresql/data
   volumePermissions:
-    enabled: true
+    enabled: false
   persistentVolumeClaimRetentionPolicy:
-    enabled: true
+    enabled: false
     whenScaled: Retain
     whenDeleted: Retain
 #  primary:

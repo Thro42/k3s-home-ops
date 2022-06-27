@@ -6,7 +6,7 @@ metadata:
   name: pihole-dnsm-pvc
 spec:
   storageClassName: longhorn-static
-  volumeName: pihole-pv
+  volumeName: pihole-dnsm-pv
   volumeMode: Block
   accessModes:
     - ReadWriteOnce

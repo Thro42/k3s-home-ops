@@ -5,9 +5,10 @@ metadata:
     net.ebt.service: pihole-pvc
   name: pihole-pvc
 spec:
-  storageClassName: nfs-nas
+  storageClassName: longhorn-static
+  volumeName: pihole-pv
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
+      storage: 8Gi

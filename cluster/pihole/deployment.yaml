@@ -52,5 +52,5 @@ spec:
             claimName: piihole-pvc
         - name: pihole-dnsmasq
           configMap:
-            claimName: pihole-dnsmasq
+            name: pihole-dnsmasq
             defaultMode: 0777

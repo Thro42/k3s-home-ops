@@ -153,7 +153,8 @@ postgresql:
     enabled: true
     whenScaled: Retain
     whenDeleted: Retain
-#  primary:
+  primary:
+    storageClass: "longhorn-static"
 #    podSecurityContext:
 #      enabled: true
 #      fsGroup: 1001
@@ -175,7 +176,7 @@ postgresql:
   persistence:
     enabled: true
     existingClaim: "postgresql-pvc"
-    storageClass: "nfs-client"
+    storageClass: "longhorn-static"
     accessModes:
       - ReadWriteOnce
 # -- Enable and configure influxdb database subchart under this key.

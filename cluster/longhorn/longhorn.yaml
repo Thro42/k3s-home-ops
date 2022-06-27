@@ -60,6 +60,7 @@ metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
     argocd.argoproj.io/sync-options: Prune=false
+    app.kubernetes.io/part-of: argocd
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn

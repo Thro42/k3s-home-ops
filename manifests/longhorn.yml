@@ -13,10 +13,16 @@ spec:
   destination: 
     server: https://kubernetes.default.svc
     namespace: longhorn-system
+  ignoreDifferences:
+    - group: apps
+      kind: ConfigMap
+      jsonPointers:
+      - /data/default-setting.yaml
 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
+    - RespectIgnoreDifferences=true
 
     automated:
       selfHeal: true

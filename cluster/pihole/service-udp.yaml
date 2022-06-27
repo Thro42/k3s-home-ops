@@ -9,12 +9,14 @@ metadata:
     metallb.universe.tf/allow-shared-ip: pihole-svc
 spec:
   ports:
-    - name: "53"
+    - name: 53-udp
       port: 53
+      protocol: UDP
       targetPort: 53
-    - name: "80"
-      port: 80
-      targetPort: 80
+    - name: "67"
+      port: 67
+      protocol: UDP
+      targetPort: 67
   selector:
     net.ebt.service: pihole
   type: LoadBalancer

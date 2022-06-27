@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/name: pihole-dnsmasq
     app.kubernetes.io/instance: pihole
   labels:
-     net.ebt.app: piihole
+     net.ebt.app: pihole
   name: pihole-dnsmasq
   namespace: pihole
 data:

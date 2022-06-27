@@ -5,6 +5,7 @@ metadata:
     net.ebt.service: pihole-pvc
   name: pihole-pvc
 spec:
+  storageClassName: nfs-nas
   accessModes:
     - ReadWriteOnce
   resources:

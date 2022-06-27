@@ -166,4 +166,5 @@ spec:
         resources:
           requests:
             storage: 8Gi
+        volumeMode: Block
         storageClassName: longhorn-static

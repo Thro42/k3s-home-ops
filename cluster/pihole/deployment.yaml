@@ -17,7 +17,6 @@ spec:
         net.ebt.service: pihole
     spec:
       hostname: pihole
-      subdomain: thomitzek.net
       containers:
         - env:
             - name: TZ

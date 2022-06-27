@@ -3,9 +3,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: pihole-remote-pvc
 spec:
+  storageClassName: nfs-storage-class
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 2Gi
-      storageClassName: nfs-storage-class
+ 

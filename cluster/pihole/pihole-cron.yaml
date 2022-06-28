@@ -24,6 +24,7 @@ spec:
           restartPolicy: OnFailure
           volumes:
             - name: pihole-pvc
+              readOnly: true
               persistentVolumeClaim:
                 claimName: pihole-pvc
             - name: pihole-remote-pvc

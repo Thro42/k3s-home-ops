@@ -17,8 +17,6 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  volume.beta.kubernetes.io/storage-provisioner: driver.longhorn.io
-  volume.kubernetes.io/storage-provisioner: driver.longhorn.io
   name: data-home-assistant-postgresql-0
   namespace: home-assistant
   finalizers:

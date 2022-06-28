@@ -15,18 +15,19 @@ spec:
             command:
             - /bin/sh
             - -c
-            args: ['cp /etc/pihole/custom.list /mnt/pihole_remote/pihole-configs/custom.list']
-            volumeMounts:
-            - name: pihole-pvc
-              readOnly: true
-              mountPath: /etc/pihole
-            - name: pihole-remote-pvc
-              mountPath: /mnt/pihole_remote
+            args: ['kubectl exec -i -t -n pihole $(kubectl get pods -n pihole -l net.ebt.service=pihole -o name) -c pihole -- sh -c "cp /etc/pihole/custom.list /mnt/pihole_remote/pihole-configs/custom.list; (bash || ash || sh)"']
+#            args: ['cp /etc/pihole/custom.list /mnt/pihole_remote/pihole-configs/custom.list']
+#            volumeMounts:
+#            - name: pihole-pvc
+#              readOnly: true
+#              mountPath: /etc/pihole
+#            - name: pihole-remote-pvc
+#              mountPath: /mnt/pihole_remote
           restartPolicy: OnFailure
-          volumes:
-            - name: pihole-pvc
-              persistentVolumeClaim:
-                claimName: pihole-pvc
-            - name: pihole-remote-pvc
-              persistentVolumeClaim:
-                claimName: pihole-remote-pvc
+#          volumes:
+#            - name: pihole-pvc
+#              persistentVolumeClaim:
+#                claimName: pihole-pvc
+#            - name: pihole-remote-pvc
+#              persistentVolumeClaim:
+#                claimName: pihole-remote-pvc

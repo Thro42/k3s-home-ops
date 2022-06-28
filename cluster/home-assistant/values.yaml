@@ -16,11 +16,13 @@ service:
 #    port: 8123
 #    nodePort: 8123
     loadBalancerIP: 192.168.42.19
+    externalIPs:
+      - 192.168.42.19
     ports:
       http:
         protocol: HTTP
 #        nodePort: 8123
-        primary: true
+#        primary: true
         port: 8123
         name: http
       hue:

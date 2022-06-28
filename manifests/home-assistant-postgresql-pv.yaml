@@ -21,28 +21,28 @@ spec:
     kind: PersistentVolumeClaim
     namespace: home-assistant
     name: data-home-assistant-postgresql-0
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: ha-postgresql
-spec:
-  capacity:
-    storage: 8Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: longhorn-static
-  csi:
-    driver: driver.longhorn.io
-    fsType: ext4
-    volumeAttributes:
-      numberOfReplicas: '3'
-      staleReplicaTimeout: '2880'
-    volumeHandle: ha-postgresql
-  claimRef:
-    kind: PersistentVolumeClaim
-    namespace: home-assistant
-    name: postgresql-pvc
----
+#---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: ha-postgresql
+#spec:
+#  capacity:
+#    storage: 8Gi
+#  volumeMode: Filesystem
+#  accessModes:
+#    - ReadWriteOnce
+#  persistentVolumeReclaimPolicy: Delete
+#  storageClassName: longhorn-static
+#  csi:
+#    driver: driver.longhorn.io
+#    fsType: ext4
+#    volumeAttributes:
+#      numberOfReplicas: '3'
+#      staleReplicaTimeout: '2880'
+#    volumeHandle: ha-postgresql
+#  claimRef:
+#    kind: PersistentVolumeClaim
+#    namespace: home-assistant
+#    name: postgresql-pvc
+#---

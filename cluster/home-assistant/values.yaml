@@ -128,8 +128,8 @@ mariadb:
   primary:
     persistence:
       enabled: true
-      existingClaim: postgresql-pvc
-      storageClass: "nfs-client"
+#      existingClaim: postgresql-pvc
+      storageClass: "longhorn-static"
 
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
@@ -175,7 +175,7 @@ postgresql:
 #      runAsNonRoot: true
   persistence:
     enabled: true
-    existingClaim: "postgresql-pvc"
+#    existingClaim: "postgresql-pvc"
     storageClass: "longhorn-static"
     accessModes:
       - ReadWriteOnce

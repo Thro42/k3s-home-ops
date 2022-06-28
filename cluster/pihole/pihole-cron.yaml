@@ -18,13 +18,13 @@ spec:
             args: ['cp /etc/pihole/custom.list /mnt/pihole_remote/pihole-configs/custom.list']
             volumeMounts:
             - name: pihole-pvc
+              readOnly: true
               mountPath: /etc/pihole
             - name: pihole-remote-pvc
               mountPath: /mnt/pihole_remote
           restartPolicy: OnFailure
           volumes:
             - name: pihole-pvc
-              readOnly: true
               persistentVolumeClaim:
                 claimName: pihole-pvc
             - name: pihole-remote-pvc

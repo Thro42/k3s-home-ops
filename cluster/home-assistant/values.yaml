@@ -10,7 +10,8 @@ env:
 # -- Configures service settings for the chart. Normally this does not need to be modified.
 service:
   main:
-#    primary: true
+    enabled: true
+    primary: true
     type: ClusterIP
 #    port: 8123
 #    nodePort: 8123
@@ -19,9 +20,9 @@ service:
       http:
         protocol: HTTP
 #        nodePort: 8123
-#        primary: true
+        primary: true
         port: 8123
-#        name: http
+        name: http
       hue:
         protocol: HTTP
         port: 80

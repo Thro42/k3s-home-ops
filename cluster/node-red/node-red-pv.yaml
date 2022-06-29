@@ -4,7 +4,7 @@ metadata:
   name: node-red-pv
 spec:
   capacity:
-    storage: 8Gi
+    storage: 2Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce

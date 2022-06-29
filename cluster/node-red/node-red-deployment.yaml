@@ -24,7 +24,7 @@ spec:
       initContainers:
        - name: copy
          image: busybox:1.28
-         command: ["/bin/sh", "-c", "cp -R /mnt/data_remote /data/"]
+         command: ["/bin/sh", "-c", "/mnt/data_remote/copy_to_local.sh"]
          volumeMounts:
             - mountPath: /data
               name: node-red-pvc

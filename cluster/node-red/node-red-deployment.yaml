@@ -21,6 +21,15 @@ spec:
         io.kompose.network/node-red-net: "true"
         io.kompose.service: node-red
     spec:
+      initContainers:
+       - name: copy
+         image: busybox:1.28
+         command: ["/bin/sh", "-c", "cp -R /mnt/data_remote /data/"]
+         volumeMounts:
+            - mountPath: /data
+              name: node-red-pvc
+            - mountPath: /mnt/data_remote
+              name: remote-data
       containers:
         - env:
             - name: TZ
@@ -47,8 +56,13 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: node-red-pvc
+            - mountPath: /mnt/data_remote
+              name: remote-data
       restartPolicy: Always
       volumes:
         - name: node-red-pvc
+          persistentVolumeClaim:
+            claimName: node-red-bloc
+        - name: remote-data
           persistentVolumeClaim:
             claimName: node-red-pvc

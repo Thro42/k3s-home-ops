@@ -1,21 +1,21 @@
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: copy-to-remote
-spec:
-  schedule: "0 * * * *"
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: pihole-to-remote
-            image: busybox:1.28
-            imagePullPolicy: IfNotPresent
-            command:
-            - /bin/sh
-            - -c
-            args: ['kubectl exec -i -t -n pihole $(kubectl get pods -n pihole -l net.ebt.service=pihole -o name) -c pihole -- sh -c "cp /etc/pihole/custom.list /mnt/pihole_remote/pihole-configs/custom.list; (bash || ash || sh)"']
+#apiVersion: batch/v1
+#kind: CronJob
+#metadata:
+#  name: copy-to-remote
+#spec:
+#  schedule: "0 * * * *"
+#  jobTemplate:
+#    spec:
+#      template:
+#        spec:
+#          containers:
+#          - name: pihole-to-remote
+#            image: busybox:1.28
+#            imagePullPolicy: IfNotPresent
+#            command:
+#            - /bin/sh
+#            - -c
+#            args: ['kubectl exec -i -t -n pihole $(kubectl get pods -n pihole -l net.ebt.service=pihole -o name) -c pihole -- sh -c "cp /etc/pihole/custom.list /mnt/pihole_remote/pihole-configs/custom.list; (bash || ash || sh)"']
 #            args: ['cp /etc/pihole/custom.list /mnt/pihole_remote/pihole-configs/custom.list']
 #            volumeMounts:
 #            - name: pihole-pvc
@@ -23,7 +23,7 @@ spec:
 #              mountPath: /etc/pihole
 #            - name: pihole-remote-pvc
 #              mountPath: /mnt/pihole_remote
-          restartPolicy: OnFailure
+#          restartPolicy: OnFailure
 #          volumes:
 #            - name: pihole-pvc
 #              persistentVolumeClaim:

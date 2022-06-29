@@ -11,3 +11,18 @@ spec:
   resources:
     requests:
       storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: node-red-bloc
+  namespace: node-red
+spec:
+  storageClassName: longhorn-static
+  volumeName: node-red-pv
+  volumeMode: Block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

@@ -4,7 +4,7 @@ metadata:
   name: homeassistant-pv
 spec:
   capacity:
-    storage: 32Gi
+    storage: 48Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

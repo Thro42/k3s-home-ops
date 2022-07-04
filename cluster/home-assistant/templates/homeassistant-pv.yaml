@@ -7,7 +7,7 @@ spec:
     storage: 32Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
   storageClassName: longhorn-static
   csi:

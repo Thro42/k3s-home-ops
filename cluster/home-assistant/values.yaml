@@ -57,10 +57,10 @@ securityContext:
 persistence:
   config:
     enabled: true
-    existingClaim: home-assistant-pvc
+    existingClaim: homeassistant-pvc
   remote:
     enabled: true
-    existingClaim: homeassistant-pvc
+    existingClaim: home-assistant-pvc
     mountPath: /mnt/remote
   # -- Configure a hostPathMount to mount a USB device in the container.
   usb:
@@ -73,7 +73,7 @@ addons:
     enabled: true
     image:
       repository: codercom/code-server
-      tag: 4.4.0
+      tag: 4.5.0
     workingDir: "/config"
     args:
       - --user-data-dir

@@ -19,6 +19,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: data-home-assistant-postgresql-0
   namespace: home-assistant
+  creationTimestamp: null
   finalizers:
     - kubernetes.io/pvc-protection
   labels:

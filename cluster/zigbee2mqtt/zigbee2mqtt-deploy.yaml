@@ -39,8 +39,8 @@ spec:
             cpu: 100m
             memory: 200Mi
           limits:
-            cpu: 1
-            memory: 1Gi
+            cpu: 2
+            memory: 2Gi
         ports:
           - name: http
             containerPort: 8080

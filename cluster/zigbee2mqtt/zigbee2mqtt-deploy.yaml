@@ -51,9 +51,9 @@ spec:
         volumeMounts:
           - name: zigbee2mqtt-data
             mountPath: /data
-          #- name: zigbee2mqtt-config
-          #  mountPath: /app/configuration.yaml
-          #  subPath: configuration.yaml
+          - name: zigbee2mqtt-config
+            mountPath: /app/configuration.yaml
+            subPath: configuration.yaml
           - name: zigbee2mqtt-udev
             mountPath: /run/udev
         livenessProbe:

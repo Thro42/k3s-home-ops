@@ -13,11 +13,16 @@ spec:
   destination: 
     server: https://kubernetes.default.svc
     namespace: zigbee2mqtt
+  ignoreDifferences:
+    - group: apps
+      kind: ConfigMap
+      jsonPointers:
+      - /app/configuration.yaml
 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-
+    - RespectIgnoreDifferences=true
     automated:
       selfHeal: true
       prune: true

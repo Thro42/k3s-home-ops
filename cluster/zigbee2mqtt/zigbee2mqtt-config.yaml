@@ -25,7 +25,7 @@ data:
     # Zigbee Adapter path
     serial:
       adapter: ezsp
-      port: tcp://192.168.42.233:8888
+      port: tcp://192.168.42.232:8888
       baudrate: 115200
     # Enable the Zigbee2MQTT frontend
     frontend:

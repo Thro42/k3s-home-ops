@@ -24,4 +24,4 @@ spec:
   claimRef:
     kind: PersistentVolumeClaim
     namespace: home-assistant
-    name: home-assistant-postgresql-0
+    name: data-home-assistant-postgresql-0

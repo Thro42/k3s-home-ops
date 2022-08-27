@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+{{- if .Values.appdaemon.enabled }}
+metadata:
+  annotations: null
+  annotations: null
+  labels:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: home-assistant
+    app.kubernetes.io/name: appdaemon
+  name: home-assistant-appdaemon
+  namespace: home-assistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: primary
+      app.kubernetes.io/instance: home-assistant
+      app.kubernetes.io/name: appdaemon
+  template:
+    metadata:
+      annotations: null
+      labels:
+        app.kubernetes.io/component: primary
+        app.kubernetes.io/instance: home-assistant
+        app.kubernetes.io/name: appdaemon
+      name: home-assistant-appdaemon
+      affinity:
+        nodeAffinity: null
+        podAffinity: null
+      containers:
+        - env:
+           - name: HA_URL
+              value: "http://localhost:{{ .Values.service.port }}"
+            {{- if .Values.appdaemon.haToken }}
+           - name: HA_TOKEN
+              value: {{ .Values.appdaemon.haToken }}
+            {{- end }}
+        image: "{{ .Values.appdaemon.image.repository }}:{{ .Values.appdaemon.image.tag }}"
+        name: appdaemon
+        imagePullPolicy: {{ .Values.appdaemon.image.pullPolicy }}
+        ports:
+        - name: appdaemon
+            containerPort: {{ .Values.appdaemon.service.port }}
+            protocol: TCP
+        volumeMounts:
+        - mountPath: /apps
+            name: appdaemon-pvc
+            subPath: appdaemon
+      restartPolicy: Always
+      volumes:
+        - name: appdaemon-pvc
+          persistentVolumeClaim:
+            claimName: homeassistant-pvc
+{{- end }}
+

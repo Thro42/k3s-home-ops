@@ -31,9 +31,9 @@ spec:
       spec:
         containers:
             - env:
-            - name: "HA_URL"
+              - name: "HA_URL"
                 value: "http://192.168.42.19:8123/"
-            - name: "HA_TOKEN"
+              - name: "HA_TOKEN"
                 value: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhNzAzYmE5NTlkMDQ0OWRmODk4MGI3MTdlZmJiZTMyYyIsImlhdCI6MTY2MTQ1NjM2NSwiZXhwIjoxOTc2ODE2MzY1fQ.6DQ1M6xZLy_59Q_in7qYKQL0SpDvqso7IHCwBPK0ajQ"
             image: acockburn/appdaemon:latest
             name: appdaemon

@@ -31,12 +31,10 @@ spec:
       containers:
         - env:
            - name: HA_URL
-              value: "http://localhost:{{ .Values.service.port }}"
-            {{- if .Values.appdaemon.haToken }}
+              value: "http://192.168.42.19:8123/"
            - name: HA_TOKEN
               value: {{ .Values.appdaemon.haToken }}
-            {{- end }}
-        image: "{{ .Values.appdaemon.image.repository }}:{{ .Values.appdaemon.image.tag }}"
+        image: {{ .Values.appdaemon.image.repository }}:{{ .Values.appdaemon.image.tag }}
         name: appdaemon
         imagePullPolicy: {{ .Values.appdaemon.image.pullPolicy }}
         ports:

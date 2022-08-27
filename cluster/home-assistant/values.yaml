@@ -94,6 +94,19 @@ addons:
           protocol: TCP
           targetPort: codeserver
 #-----------------------------------------------------------
+  appdaemon:
+    enabled: true
+    image:
+      repository: acockburn/appdaemon
+      tag: latest
+      pullPolicy: IfNotPresent
+    haToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhNzAzYmE5NTlkMDQ0OWRmODk4MGI3MTdlZmJiZTMyYyIsImlhdCI6MTY2MTQ1NjM2NSwiZXhwIjoxOTc2ODE2MzY1fQ.6DQ1M6xZLy_59Q_in7qYKQL0SpDvqso7IHCwBPK0ajQ
+    service:
+      enabled: true
+      type: LoadBalancer
+      loadBalancerIP: 192.168.42.19
+      port: 5050
+#-----------------------------------------------------------
 configurator:
   enabled: true
   image: 
@@ -107,19 +120,6 @@ configurator:
     type: LoadBalancer
     loadBalancerIP: 192.168.42.19
     port: 3218
-#-----------------------------------------------------------
-appdaemon:
-  enabled: true
-  image:
-    repository: acockburn/appdaemon
-    tag: latest
-    pullPolicy: IfNotPresent
-  haToken: cthvYFGgpS482SyvbPnddw0XoJRRoVfgQzTco93A3Xw
-  service:
-    enabled: true
-    type: LoadBalancer
-    loadBalancerIP: 192.168.42.19
-    port: 5050
 #-----------------------------------------------------------
 # -- Enable and configure mariadb database subchart under this key.
 #    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)

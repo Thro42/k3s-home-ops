@@ -24,11 +24,8 @@ spec:
         app.kubernetes.io/component: primary
         app.kubernetes.io/instance: home-assistant
         app.kubernetes.io/name: appdaemon
-      name: home-assistant-appdaemon
-      affinity:
-        nodeAffinity: null
-        podAffinity: null
-      spec:
+    name: home-assistant-appdaemon
+    spec:
         containers:
             - env:
               - name: "HA_URL"

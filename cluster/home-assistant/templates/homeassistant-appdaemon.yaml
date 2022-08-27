@@ -24,7 +24,6 @@ spec:
         app.kubernetes.io/component: primary
         app.kubernetes.io/instance: home-assistant
         app.kubernetes.io/name: appdaemon
-    name: home-assistant-appdaemon
     spec:
         containers:
             - env:

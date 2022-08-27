@@ -30,21 +30,21 @@ spec:
         podAffinity: null
       containers:
         - env:
-           - name: HA_URL
+           - name: "HA_URL"
              value: "http://192.168.42.19:8123/"
-           - name: HA_TOKEN
-             value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhNzAzYmE5NTlkMDQ0OWRmODk4MGI3MTdlZmJiZTMyYyIsImlhdCI6MTY2MTQ1NjM2NSwiZXhwIjoxOTc2ODE2MzY1fQ.6DQ1M6xZLy_59Q_in7qYKQL0SpDvqso7IHCwBPK0ajQ
+           - name: "HA_TOKEN"
+             value: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhNzAzYmE5NTlkMDQ0OWRmODk4MGI3MTdlZmJiZTMyYyIsImlhdCI6MTY2MTQ1NjM2NSwiZXhwIjoxOTc2ODE2MzY1fQ.6DQ1M6xZLy_59Q_in7qYKQL0SpDvqso7IHCwBPK0ajQ"
           image: acockburn/appdaemon:latest
           name: appdaemon
           imagePullPolicy: {{ .Values.appdaemon.image.pullPolicy }}
           ports:
           - name: appdaemon
-              containerPort: {{ .Values.appdaemon.service.port }}
-              protocol: TCP
+            containerPort: {{ .Values.appdaemon.service.port }}
+            protocol: TCP
           volumeMounts:
           - mountPath: /apps
-              name: appdaemon-pvc
-              subPath: appdaemon
+            name: appdaemon-pvc
+            subPath: appdaemon
       restartPolicy: Always
       volumes:
         - name: appdaemon-pvc

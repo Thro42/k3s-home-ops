@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metallb.universe.tf/allow-shared-ip: home-assistant-svc
+    metallb.universe.tf/address-pool: server
+  name: appdaemon-tcp
+  namespace: home-assistant
+spec:
+  ports:
+    - name: http
+      port: 5050
+      targetPort: 5050
+  selector:
+    app.kubernetes.io/name: appdaemon
+  type: LoadBalancer
+  loadBalancerIP: 192.168.42.19

@@ -40,16 +40,16 @@ spec:
               imagePullPolicy: {{ .Values.appdaemon.image.pullPolicy }}
               ports:
               - name: appdaemon
-                  containerPort: {{ .Values.appdaemon.service.port }}
-                  protocol: TCP
+                containerPort: {{ .Values.appdaemon.service.port }}
+                protocol: TCP
               volumeMounts:
               - mountPath: /apps
-                  name: appdaemon-pvc
-                  subPath: appdaemon
+                name: appdaemon-pvc
+                subPath: appdaemon
         restartPolicy: Always
         volumes:
             - name: appdaemon-pvc
-            persistentVolumeClaim:
+              persistentVolumeClaim:
                 claimName: homeassistant-pvc
 {{- end }}
 

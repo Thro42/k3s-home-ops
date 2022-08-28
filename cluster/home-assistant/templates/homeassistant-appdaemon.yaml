@@ -45,6 +45,9 @@ spec:
               - mountPath: /conf
                 subPath: appdaemon
                 name: appdaemon-pvc
+              - mountPath: conf
+                subPath: appdaemon
+                name: appdaemon-pvc
         restartPolicy: Always
         volumes:
             - name: appdaemon-pvc

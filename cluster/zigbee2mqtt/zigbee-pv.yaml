@@ -20,4 +20,4 @@ spec:
   claimRef:
     kind: PersistentVolumeClaim
     namespace: zigbee2mqtt
-    name: zigbee-pv
+    name: zigbee2mqtt-pvc

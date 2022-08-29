@@ -50,9 +50,9 @@ spec:
             protocol: TCP
         volumeMounts:
           - name: zigbee2mqtt-data
-            mountPath: /data
-          - name: zigbee2mqtt-data-bck
             mountPath: /data-bck
+          - name: zigbee2mqtt-data-long
+            mountPath: /data
           - name: zigbee2mqtt-config
             mountPath: /app/configuration.yaml
             subPath: configuration.yaml
@@ -83,7 +83,7 @@ spec:
         - name: zigbee2mqtt-data
           persistentVolumeClaim:
             claimName: zigbee-pvc
-        - name: zigbee2mqtt-data-bck
+        - name: zigbee2mqtt-data-long
           persistentVolumeClaim:
             claimName: zigbee2mqtt-pvc
         - name: zigbee2mqtt-udev

@@ -25,6 +25,8 @@ spec:
         image: koenkk/zigbee2mqtt:latest-dev
         imagePullPolicy: IfNotPresent
         env:
+          - name: CHANNEL
+            VALUE: "11"
           - name: TZ
             value: Europe/Berlin
           - name: "ZIGBEE2MQTT_DATA"

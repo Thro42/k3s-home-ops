@@ -26,7 +26,10 @@ spec:
         app.kubernetes.io/name: appdaemon
     spec:
         containers:
-            - image: acockburn/appdaemon:latest
+            - env:
+              - name: "HA_TOKEN"
+                value: ""
+              image: acockburn/appdaemon:latest
               name: appdaemon
               imagePullPolicy: {{ .Values.appdaemon.image.pullPolicy }}
               ports:

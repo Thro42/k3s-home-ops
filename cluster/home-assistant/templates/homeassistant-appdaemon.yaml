@@ -27,6 +27,8 @@ spec:
     spec:
         containers:
             - env:
+              - name: TZ
+                value: Europe/Berlin
               - name: "HA_TOKEN"
                 value: ""
               image: acockburn/appdaemon:latest

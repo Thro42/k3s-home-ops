@@ -56,6 +56,8 @@ spec:
         volumeMounts:
         - mountPath: /dev/serial/by-id/usb-0658_0200-if00
           name: zwavestick
+        - mountPath: /dev/ttyACM0
+          name: zwavestick
         - mountPath: /usr/src/app/store
           name: zwave-pvc
 #        - mountPath: /usr/src/app/store/settings.json

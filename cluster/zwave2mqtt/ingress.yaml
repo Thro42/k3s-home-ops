@@ -12,6 +12,6 @@ spec:
           backend:
             service:
               name: zwave2mqtt
-            port: 
-              number: 80
+              port: 
+                number: 80
               

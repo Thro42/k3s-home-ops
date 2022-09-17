@@ -71,7 +71,7 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: zwave-pvc
-      - name: data-log
+      - name: data-long
         persistentVolumeClaim:
           claimName: zwave2mqtt-pvc
     # -- Affinity constraint rules to place the Pod on a specific node.

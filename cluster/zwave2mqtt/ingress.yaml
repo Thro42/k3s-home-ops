@@ -7,6 +7,8 @@ spec:
     - host: zwave.thomitzek.net
       http:
         paths:
-          - backend:
+        - pathType: Prefix
+          path: "/"
+          backend:
               serviceName: zwave2mqtt
               servicePort: http

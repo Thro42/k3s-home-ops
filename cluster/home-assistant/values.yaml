@@ -1,7 +1,8 @@
 image:
   repository: ghcr.io/home-assistant/home-assistant
-  tag: 2022.6.6
+  tag: 2022.9.4
   pullPolicy: IfNotPresent
+#  tag: 2022.6.6
 
 # -- environment variables.
 env:

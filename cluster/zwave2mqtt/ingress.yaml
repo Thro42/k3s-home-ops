@@ -10,5 +10,5 @@ spec:
         - pathType: Prefix
           path: "/"
           backend:
-              serviceName: zwave2mqtt
-              servicePort: http
+              name: zwave2mqtt
+              port: http

@@ -19,6 +19,10 @@ spec:
       port: 80
       targetPort: 80
       protocol: TCP
+    - name: sonos
+      port: 1400
+      targetPort: 1400
+      protocol: TCP
   selector:
     app.kubernetes.io/name: home-assistant
   type: LoadBalancer

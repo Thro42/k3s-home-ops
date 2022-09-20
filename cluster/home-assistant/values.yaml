@@ -29,6 +29,9 @@ service:
       hue:
         protocol: HTTP
         port: 80
+      sonos:
+        protocol: HTTP
+        port: 80
       postgres:
         port: 5432
 

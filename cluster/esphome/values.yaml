@@ -1,7 +1,7 @@
-image:
-  repository: esphome/esphome
-  pullPolicy: IfNotPresent
-  tag: 2022.8.3
+image: esphome/esphome:latest
+#  repository: esphome/esphome
+#  pullPolicy: IfNotPresent
+#  tag: latest
 
 env:
   ESPHOME_DASHBOARD_USE_PING: true

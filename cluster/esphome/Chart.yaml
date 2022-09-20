@@ -1,7 +1,7 @@
 name: esphome
 apiVersion: v2
 version: 1.0.0
-appVersion: 2022.5.0
+appVersion: 2022.8.3
 dependencies:
   - name: esphome
     repository: https://k8s-at-home.com/charts/

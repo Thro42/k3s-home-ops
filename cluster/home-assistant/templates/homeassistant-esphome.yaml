@@ -1,0 +1,59 @@
+{{- if .Values.esphome.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations: null
+  annotations: null
+  labels:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: home-assistant
+    app.kubernetes.io/name: esphome
+  name: home-assistant-esphome
+  namespace: home-assistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: primary
+      app.kubernetes.io/instance: home-assistant
+      app.kubernetes.io/name: esphome
+  template:
+    metadata:
+      annotations: null
+      labels:
+        app.kubernetes.io/component: primary
+        app.kubernetes.io/instance: home-assistant
+        app.kubernetes.io/name: esphome
+    spec:
+        containers:
+            - env:
+              - name: TZ
+                value: Europe/Berlin
+              - name: "HA_TOKEN"
+                value: ""
+              - name: "ESPHOME_DASHBOARD_USE_PING"
+                value: true
+              - name: "ESPHOME_IS_HASSIO"
+                value: true
+              image: esphome/esphome:latest
+              name: esphome
+              imagePullPolicy: {{ .Values.esphome.image.pullPolicy }}
+              ports:
+              - name: esphome
+                containerPort: {{ .Values.esphome.service.port }}
+                protocol: TCP
+              - containerPort: 8123
+                protocol: TCP
+              - containerPort: 6123
+                protocol: TCP
+              volumeMounts:
+              - mountPath: /config
+                name: appdaemon-pvc
+                subPath: esphome
+        restartPolicy: Always
+        volumes:
+            - name: appdaemon-pvc
+              persistentVolumeClaim:
+                claimName: homeassistant-pvc
+{{- end }}
+

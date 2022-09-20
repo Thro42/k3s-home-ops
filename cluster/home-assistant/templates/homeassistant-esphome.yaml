@@ -32,9 +32,9 @@ spec:
               - name: "HA_TOKEN"
                 value: ""
               - name: "ESPHOME_DASHBOARD_USE_PING"
-                value: true
+                value: "true"
               - name: "ESPHOME_IS_HASSIO"
-                value: true
+                value: "true"
               image: esphome/esphome:latest
               name: esphome
               imagePullPolicy: {{ .Values.esphome.image.pullPolicy }}

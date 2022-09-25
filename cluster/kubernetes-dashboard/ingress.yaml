@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubernetes-dashboard
+  labels:
+    app: kubernetes-dashboard
+    name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+spec:
+  rules:
+  - host: dashboard.thomitzek.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kubernetes-dashboard
+            port: 
+              number: 80

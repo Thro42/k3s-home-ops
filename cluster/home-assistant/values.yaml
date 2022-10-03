@@ -102,7 +102,7 @@ appdaemon:
   enabled: true
   image:
     repository: acockburn/appdaemon
-    tag: latest
+    tag: 4.2.1
     pullPolicy: IfNotPresent
   haToken:
   service:

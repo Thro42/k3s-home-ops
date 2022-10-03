@@ -61,10 +61,10 @@ securityContext:
 persistence:
   config:
     enabled: true
-    existingClaim: homeassistant-pvc
+    existingClaim: home-assistant-pvc
   remote:
     enabled: true
-    existingClaim: home-assistant-pvc
+    existingClaim: homeassistant-pvc
     mountPath: /mnt/remote
   # -- Configure a hostPathMount to mount a USB device in the container.
   usb:

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: zwave2mqtt
-        image: zwavejs/zwavejs2mqtt:latest
+        image: zwavejs/zwavejs2mqtt:8.0.3
 #        livenessProbe:
 #          failureThreshold: 10
 #          httpGet:

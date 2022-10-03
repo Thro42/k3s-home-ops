@@ -115,7 +115,7 @@ esphome:
   enabled: true
   image:
     repository: esphome/esphome
-    tag: latest
+    tag: 2022.9
     pullPolicy: IfNotPresent
   service:
     enabled: true

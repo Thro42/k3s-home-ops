@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    metallb.universe.tf/address-pool: server
+#  annotations:
+#    metallb.universe.tf/address-pool: server
   name: zigbee2mqtt-tcp
   namespace: zigbee2mqtt
   labels:

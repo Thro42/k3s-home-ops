@@ -12,7 +12,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: 192.168.42.4
-    path: "/volume1/docker/pihole/pihole-pvc"
+    path: "/volume1/cluster/pihole/pihole-pvc"
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -27,4 +27,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: 192.168.42.4
-    path: "/volume1/docker/pihole/dnsmasq.d-configs"
+    path: "/volume1/cluster/pihole/dnsmasq.d-configs"

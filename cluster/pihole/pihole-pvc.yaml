@@ -1,15 +1,15 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  labels:
-    net.ebt.service: pihole-pvc
-  name: pihole-pvc
-spec:
-  storageClassName: longhorn-static
-  volumeName: pihole-pv
-  volumeMode: Block
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 8Gi
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  labels:
+#    net.ebt.service: pihole-pvc
+#  name: pihole-pvc
+#spec:
+#  storageClassName: longhorn-static
+#  volumeName: pihole-pv
+#  volumeMode: Block
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 8Gi

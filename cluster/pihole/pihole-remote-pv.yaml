@@ -6,7 +6,7 @@ metadata:
 spec:
   storageClassName: nfs-storage-class
   capacity:
-    storage: 2Gi
+    storage: 8Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain

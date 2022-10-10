@@ -44,23 +44,24 @@ spec:
           volumeMounts:
             - mountPath: /etc/pihole
               name: pihole-pvc
-            - mountPath: /etc/dnsmasq.d
-              name: pihole-dnsmasq
-            - mountPath: /etc/pihole
-              name: pihole-pvc
-            - mountPath: /mnt/pihole_remote
-              name: pihole-remote-pvc
+#            - mountPath: /etc/dnsmasq.d
+#              name: pihole-dnsmasq
+#            - mountPath: /etc/pihole
+#              name: pihole-pvc
+#            - mountPath: /mnt/pihole_remote
+#              name: pihole-remote-pvc
       restartPolicy: Always
       volumes:
         - name: pihole-pvc
           persistentVolumeClaim:
-            claimName: pihole-pvc
-        - name: pihole-dnsmasq
-          persistentVolumeClaim:
-            claimName: pihole-dnsm-pvc
+            claimName: pihole-remote-pvc
+#            claimName: pihole-pvc
+#        - name: pihole-dnsmasq
+#          persistentVolumeClaim:
+#            claimName: pihole-dnsm-pvc
 #          configMap:
 #            name: pihole-dnsmasq
 #            defaultMode: 0777
-        - name: pihole-remote-pvc
-          persistentVolumeClaim:
-            claimName: pihole-remote-pvc
+#        - name: pihole-remote-pvc
+#          persistentVolumeClaim:
+#            claimName: pihole-remote-pvc

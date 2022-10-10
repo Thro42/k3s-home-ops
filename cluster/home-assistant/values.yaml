@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/home-assistant/home-assistant
-  tag: 2022.9.7
+  tag: 2022.10.1
   pullPolicy: IfNotPresent
 #  tag: 2022.6.6
 
@@ -61,11 +61,11 @@ securityContext:
 persistence:
   config:
     enabled: true
-    existingClaim: home-assistant-pvc
-  remote:
-    enabled: true
     existingClaim: homeassistant-pvc
-    mountPath: /mnt/remote
+#  remote:
+#    enabled: true
+#    existingClaim: homeassistant-pvc
+#    mountPath: /mnt/remote
   # -- Configure a hostPathMount to mount a USB device in the container.
   usb:
     enabled: false
@@ -150,7 +150,7 @@ mariadb:
     persistence:
       enabled: true
 #      existingClaim: postgresql-pvc
-      storageClass: "longhorn-static"
+      storageClass: "nfs-client"
 
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
@@ -164,9 +164,6 @@ postgresql:
   postgresqlUsername: home-assistant
   postgresqlPassword: home-assistant-pass
   postgresqlDatabase: home-assistant
-  storageClass: "longhorn-static"
-  global:
-    storageClass: "longhorn-static"
   postgresqlDataDir: /bitnami/postgresql/data
   volumePermissions:
     enabled: true
@@ -174,8 +171,6 @@ postgresql:
     enabled: true
     whenScaled: Retain
     whenDeleted: Retain
-  primary:
-    storageClass: "longhorn-static"
 #    podSecurityContext:
 #      enabled: true
 #      fsGroup: 1001
@@ -197,7 +192,6 @@ postgresql:
   persistence:
     enabled: true
 #    existingClaim: "postgresql-pvc"
-    storageClass: "longhorn-static"
     accessModes:
       - ReadWriteOnce
 # -- Enable and configure influxdb database subchart under this key.

@@ -27,11 +27,9 @@ metadata:
     app.kubernetes.io/instance: home-assistant
     app.kubernetes.io/name: postgresql
 spec:
-  storageClassName: longhorn-static
-  volumeName: home-assistant-postgresql
-  volumeMode: Block
+  storageClassName: nfs-client
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 8Gi

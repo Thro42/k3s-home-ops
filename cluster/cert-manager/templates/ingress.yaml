@@ -5,7 +5,7 @@ metadata:
 spec:
   rules:
     - host: cert-manager.thomitzek.net
-      https:
+      http:
         paths:
         - pathType: Prefix
           path: "/"

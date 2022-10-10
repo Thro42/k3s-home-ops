@@ -13,8 +13,8 @@ spec:
     - name: codeserver
       protocol: TCP
       port: 12321
-      targetPort: codeserver
-      nodePort: 30058
+      targetPort: 12321
+#      nodePort: 30058
  selector:
 #    app.kubernetes.io/name: codeserver
     app.kubernetes.io/instance: home-assistant

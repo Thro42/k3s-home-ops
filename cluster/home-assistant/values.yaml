@@ -94,7 +94,7 @@ addons:
       ports:
         codeserver:
           port: 12321
-          enabled: true
+          enabled: false
           protocol: TCP
           targetPort: codeserver
 #-----------------------------------------------------------

@@ -44,8 +44,8 @@ spec:
           volumeMounts:
             - mountPath: /etc/pihole
               name: pihole-pvc
-#            - mountPath: /etc/dnsmasq.d
-#              name: pihole-dnsmasq
+            - mountPath: /etc/dnsmasq.d
+              name: pihole-dnsmasq
 #            - mountPath: /etc/pihole
 #              name: pihole-pvc
 #            - mountPath: /mnt/pihole_remote

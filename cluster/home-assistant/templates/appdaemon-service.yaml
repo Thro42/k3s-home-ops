@@ -4,7 +4,6 @@ kind: Service
 metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: home-assistant-svc
-#    metallb.universe.tf/address-pool: server
   name: appdaemon-tcp
   namespace: home-assistant
 spec:

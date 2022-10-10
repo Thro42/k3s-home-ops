@@ -8,7 +8,7 @@ metadata:
   namespace: home-assistant
 spec:
   ports:
-    - name: http
+    - name: esphome
       port: {{ .Values.esphome.service.port }}
       targetPort: {{ .Values.esphome.service.port }}
   selector:

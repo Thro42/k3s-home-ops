@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: zwave2mqtt
-        image: zwavejs/zwavejs2mqtt:8.0.3
+        image: zwavejs/zwavejs2mqtt:8.1.0
 #        livenessProbe:
 #          failureThreshold: 10
 #          httpGet:
@@ -73,9 +73,9 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: zwave-pvc
-      - name: data-long
-        persistentVolumeClaim:
-          claimName: zwave2mqtt-pvc
+#      - name: data-long
+#        persistentVolumeClaim:
+#          claimName: zwave2mqtt-pvc
     # -- Affinity constraint rules to place the Pod on a specific node.
       affinity: 
         nodeAffinity:

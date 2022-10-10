@@ -11,20 +11,20 @@ spec:
   resources:
     requests:
       storage: 2Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: zwave2mqtt-pvc
-  namespace: zwave2mqtt
-  labels:
-    app.name: zwave2mqtt
-spec:
-  storageClassName: longhorn-static
-  volumeName: zwave-pv
-  volumeMode: Block
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 8Gi
+#---
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: zwave2mqtt-pvc
+#  namespace: zwave2mqtt
+#  labels:
+#    app.name: zwave2mqtt
+#spec:
+#  storageClassName: longhorn-static
+#  volumeName: zwave-pv
+#  volumeMode: Block
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 8Gi

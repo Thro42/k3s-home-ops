@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: zigbee2mqtt-application
+  name: zigbee2mqtt
   namespace: argocd
 spec:
   project: home-iot

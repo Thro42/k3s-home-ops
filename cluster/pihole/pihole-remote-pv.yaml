@@ -12,4 +12,19 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: 192.168.42.4
-    path: "/volume1/docker/pihole"
+    path: "/volume1/docker/pihole/pihole-pvc"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pihole-dnsm-pv
+spec:
+  storageClassName: nfs-storage-class
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: 192.168.42.4
+    path: "/volume1/docker/pihole/dnsmasq.d-configs"

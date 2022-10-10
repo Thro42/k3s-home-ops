@@ -56,12 +56,12 @@ spec:
           persistentVolumeClaim:
             claimName: pihole-remote-pvc
 #            claimName: pihole-pvc
-#        - name: pihole-dnsmasq
-#          persistentVolumeClaim:
-#            claimName: pihole-dnsm-pvc
-#          configMap:
-#            name: pihole-dnsmasq
-#            defaultMode: 0777
+        - name: pihole-dnsmasq
+          persistentVolumeClaim:
+            claimName: pihole-dnsm-pvc
+          configMap:
+            name: pihole-dnsmasq
+            defaultMode: 0777
 #        - name: pihole-remote-pvc
 #          persistentVolumeClaim:
 #            claimName: pihole-remote-pvc

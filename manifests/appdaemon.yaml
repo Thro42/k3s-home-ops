@@ -4,7 +4,7 @@ metadata:
   name: appdaemon
   namespace: argocd
 spec:
-  project: home
+  project: home-iot
 
   source:
     repoURL: https://github.com/Thro42/k3s-home-ops.git
@@ -17,7 +17,7 @@ spec:
         - name: HOME_ASSISTANT_IP
           value: '192.168.42.19'
         - name: HOME_ASSISTANT_TOKEN
-          value: 
+          value: ""
 
   destination: 
     server: https://kubernetes.default.svc

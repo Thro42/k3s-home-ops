@@ -14,9 +14,8 @@ spec:
       protocol: TCP
       port: 12321
       targetPort: 12321
-#      nodePort: 30058
  selector:
-#    app.kubernetes.io/name: codeserver
+#    appkubernetes.io/name: codeserver
     app.kubernetes.io/instance: home-assistant
     app.kubernetes.io/name: home-assistant
   type: LoadBalancer

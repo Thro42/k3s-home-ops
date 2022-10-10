@@ -10,21 +10,21 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 4Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: zigbee2mqtt-pvc
-  namespace: zigbee2mqtt
-  labels:
-    app.name: zigbee2mqtt
-spec:
-  storageClassName: longhorn-static
-  volumeName: zigbee-pv
-  volumeMode: Block
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
       storage: 8Gi
+#---
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: zigbee2mqtt-pvc
+#  namespace: zigbee2mqtt
+#  labels:
+#    app.name: zigbee2mqtt
+#spec:
+#  storageClassName: longhorn-static
+#  volumeName: zigbee-pv
+#  volumeMode: Block
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 8Gi

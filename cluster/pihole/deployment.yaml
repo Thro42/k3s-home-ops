@@ -54,7 +54,7 @@ spec:
       volumes:
         - name: pihole-pvc
           persistentVolumeClaim:
-            claimName: pihole-remote-pvc
+            claimName: pihole-pvc
 #            claimName: pihole-pvc
         - name: pihole-dnsmasq
           persistentVolumeClaim:

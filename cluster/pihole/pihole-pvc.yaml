@@ -3,10 +3,10 @@
 #metadata:
 #  labels:
 #    net.ebt.service: pihole-pvc
-#  name: pihole-pvc
+#  name: pihole-pvc_long
 #spec:
 #  storageClassName: longhorn-static
-#  volumeName: pihole-pv
+#  volumeName: pihole-pv_log
 #  volumeMode: Block
 #  accessModes:
 #    - ReadWriteOnce

@@ -8,7 +8,7 @@ metadata:
   namespace: home-assistant
 spec:
   ports:
-    - name: http
+    - name: appdaemon
       port: 5050
       targetPort: 5050
   selector:

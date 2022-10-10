@@ -48,17 +48,18 @@ spec:
                 protocol: TCP
               volumeMounts:
               - mountPath: /apps
-                name: appdaemon-pvc
+                name: homeassistant-pvc
+#                name: appdaemon-pvc
                 subPath: appdaemon
               - mountPath: /conf
                 subPath: appdaemon
-                name: appdaemon-pvc
+                name: homeassistant-pvc
               - mountPath: /usr/src/app/conf
                 subPath: appdaemon
-                name: appdaemon-pvc
+                name: homeassistant-pvc
         restartPolicy: Always
         volumes:
-            - name: appdaemon-pvc
+            - name: homeassistant-pvc
               persistentVolumeClaim:
                 claimName: homeassistant-pvc
 {{- end }}

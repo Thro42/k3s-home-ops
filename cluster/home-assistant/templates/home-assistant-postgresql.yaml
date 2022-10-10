@@ -116,7 +116,7 @@ spec:
             - mountPath: /dev/shm
               name: dshm
             - mountPath: /bitnami/postgresql
-              name: data
+              name: postgresql-pvc # data
       hostIPC: false
       hostNetwork: false
 #      initContainers:
@@ -154,6 +154,9 @@ spec:
         - emptyDir:
             medium: Memory
           name: dshm
+        - name: postgresql-pvc # data
+          persistentVolumeClaim:
+            claimName: postgresql-pvc
   updateStrategy:
     rollingUpdate: {}
     type: RollingUpdate

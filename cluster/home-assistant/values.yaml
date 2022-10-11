@@ -167,6 +167,7 @@ postgresql:
   postgresqlDataDir: /bitnami/postgresql/data
   volumePermissions:
     enabled: true
+    claimName: postgresql-pvc
   persistentVolumeClaimRetentionPolicy:
     enabled: true
     whenScaled: Retain

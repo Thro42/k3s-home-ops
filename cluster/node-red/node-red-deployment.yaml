@@ -56,13 +56,13 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: node-red-pvc
-            - mountPath: /mnt/data_remote
-              name: remote-data
+#            - mountPath: /mnt/data_remote
+#              name: remote-data
       restartPolicy: Always
       volumes:
         - name: node-red-pvc
           persistentVolumeClaim:
-            claimName: node-red-bloc
-        - name: remote-data
-          persistentVolumeClaim:
             claimName: node-red-pvc
+#        - name: remote-data
+#          persistentVolumeClaim:
+#            claimName: node-red-pvc

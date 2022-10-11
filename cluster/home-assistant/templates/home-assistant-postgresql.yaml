@@ -149,6 +149,7 @@ spec:
 #            - mountPath: /dev/shm
 #              name: dshm
       securityContext:
+        runAsUser: 1001
         fsGroup: 1001
       serviceAccountName: default
       volumes:

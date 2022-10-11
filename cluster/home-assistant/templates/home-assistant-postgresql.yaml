@@ -112,6 +112,7 @@ spec:
               memory: 256Mi
           securityContext:
             runAsUser: 1001
+            runAsGroup: 1001
           volumeMounts:
             - mountPath: /dev/shm
               name: dshm

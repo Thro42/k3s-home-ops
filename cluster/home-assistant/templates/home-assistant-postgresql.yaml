@@ -44,6 +44,9 @@ spec:
                   - home-assistant
                 topologyKey: kubernetes.io/hostname
               weight: 1
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 1001
       containers:
         - env:
             - name: BITNAMI_DEBUG
@@ -113,6 +116,7 @@ spec:
           securityContext:
             runAsUser: 1001
             runAsGroup: 1001
+            allowPrivilegeEscalation: false
           volumeMounts:
             - mountPath: /dev/shm
               name: dshm

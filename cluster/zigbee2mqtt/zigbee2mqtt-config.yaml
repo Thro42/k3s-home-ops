@@ -60,5 +60,5 @@ data:
       last_seen: ISO_8601_local
  
     ## Map devices to persistent /data directory
-    devices: ../data/devices.yaml
-    groups: ../data/groups.yaml
+    devices: /data/data/devices.yaml
+    groups: /data/data/groups.yaml

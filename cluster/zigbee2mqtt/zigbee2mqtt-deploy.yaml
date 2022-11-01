@@ -49,7 +49,7 @@ spec:
             containerPort: 8888
             protocol: TCP
         volumeMounts:
-          - name: zigbee2mqtt-data
+          - name: zigbee-pvc
             mountPath: /data
 #          - name: zigbee2mqtt-data-long
 #            mountPath: /data
@@ -80,7 +80,7 @@ spec:
           timeoutSeconds: 2
           periodSeconds: 5
       volumes:
-        - name: zigbee2mqtt-data
+        - name: zigbee-pvc
           persistentVolumeClaim:
             claimName: zigbee-pvc
 #        - name: zigbee2mqtt-data-long

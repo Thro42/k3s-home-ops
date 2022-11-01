@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: zigbee-pvc
   namespace: zigbee2mqtt
+  labels:
+    app.name: zigbee2mqtt
 spec:
   storageClassName: nfs-client
   accessModes:

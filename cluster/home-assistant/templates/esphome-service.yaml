@@ -11,6 +11,9 @@ spec:
     - name: esphome
       port: {{ .Values.esphome.service.port }}
       targetPort: {{ .Values.esphome.service.port }}
+    - name: esphome-api
+      port: 6053
+      targetPort: 6053
   selector:
     app.kubernetes.io/name: esphome
   type: LoadBalancer

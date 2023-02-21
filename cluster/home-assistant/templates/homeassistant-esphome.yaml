@@ -35,7 +35,7 @@ spec:
                 value: "true"
               - name: "ESPHOME_IS_HASSIO"
                 value: "true"
-              image: esphome/esphome: {{ .Values.esphome.image.tag }} # esphome/esphome:2023.2.3
+              image: esphome/esphome:2023.2.3 #  {{ .Values.esphome.image.tag }} # esphome/esphome:2023.2.3
               name: esphome
               imagePullPolicy: {{ .Values.esphome.image.pullPolicy }}
               ports:

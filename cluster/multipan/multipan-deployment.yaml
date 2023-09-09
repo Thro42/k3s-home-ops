@@ -20,6 +20,8 @@ spec:
               value: '0'
             - name: BACKBONE_IF
               value: 'eth0@if16'
+            - name: INFRA_IF_NAME
+              value: 'eth0@if16'
             - name: BAUDRATE
               value: '460800'
             - name: CPCD_TRACE

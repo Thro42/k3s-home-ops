@@ -17,26 +17,26 @@ spec:
       containers:
         - env:
             - name: AUTOFLASH_FIRMWARE
-              value: "0"
+              value: '0'
             - name: BACKBONE_IF
-              value: "eth0"
+              value: 'eth0'
             - name: BAUDRATE
               value: '460800'
             - name: CPCD_TRACE
               value: 'true'
             - name: DEVICE
-              value: 'sonoffstick'
+              value: 'ttyacm'
             - name: EZSP_LISTEN_PORT
               value: '20108'
             - name: FIRMWARE
-              value: "NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl"
+              value: 'NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl'
             - name: FLOW_CONTROL
               value: 'true'
             - name: NETWORK_DEVICE
             - name: NETWORK_DEVICES
-              value: "0"
+              value: '0'
             - name: OTBR_ENABLE
-              value: "1"
+              value: '1'
             - name: OTBR_LOG_LEVEL
               value: 'info'
             - name: OTBR_REST_LISTEN_PORT
@@ -78,12 +78,12 @@ spec:
             privileged: true
           volumeMounts:
           - mountPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
-            name: sonoffstick
+            name: ttyacm
           - mountPath: /data
             name: data
       restartPolicy: Always
       volumes:
-      - name: sonoffstick
+      - name: ttyacm
         hostPath:
           path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
           type: CharDevice

@@ -82,7 +82,7 @@ spec:
             name: ttyacm
           - mountPath: /data
             name: data
-          - mountPath: /app
+          - mountPath: /app-data
             name: app
       restartPolicy: Always
       volumes:

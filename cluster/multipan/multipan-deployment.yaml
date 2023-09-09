@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multipan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: multipan
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        name: multipan
+    spec:
+      containers:
+        - env:
+            - name: AUTOFLASH_FIRMWARE
+              value: "0"
+            - name: BACKBONE_IF
+              value: '"eth0"'
+            - name: BAUDRATE
+              value: '"460800"'
+            - name: CPCD_TRACE
+              value: '"true"'
+            - name: DEVICE
+              value: '"/dev/ttyUSB0"'
+            - name: EZSP_LISTEN_PORT
+              value: '"20108"'
+            - name: FIRMWARE
+              value: '"NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl"'
+            - name: FLOW_CONTROL
+              value: '"true"'
+            - name: NETWORK_DEVICE
+            - name: NETWORK_DEVICES
+              value: "0"
+            - name: OTBR_ENABLE
+              value: "1"
+            - name: OTBR_LOG_LEVEL
+              value: '"info"'
+            - name: OTBR_REST_LISTEN_PORT
+              value: '"8081"'
+            - name: OTBR_WEB_PORT
+              value: '"8086"'
+            - name: OTB_FIREWALL
+              value: "1"
+          image: homeassistant/aarch64-addon-silabs-multiprotocol:2.3.1
+          name: multipan
+          ports:
+            - containerPort: 9999
+              hostPort: 9999
+              protocol: TCP
+            - containerPort: 8080
+              hostPort: 8080
+              protocol: TCP
+            - containerPort: 8086
+              hostPort: 8086
+              protocol: TCP
+            - containerPort: 8081
+              hostPort: 8081
+              protocol: UDP
+            - containerPort: 20108
+              hostPort: 20108
+              protocol: UDP
+          resources:
+            limits:
+              cpu: "1"
+              memory: 512Mi
+            requests:
+              cpu: "1"
+              memory: 400Mi
+          securityContext:
+            capabilities:
+              add:
+                - SYS_ADMIN
+                - NET_ADMIN
+            privileged: true
+          volumeMounts:
+          - mountPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
+            name: sonoffstick
+          - mountPath: /data
+            name: data
+      restartPolicy: Always
+      volumes:
+      - name: sonoffstick
+        hostPath:
+          path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
+          type: CharDevice
+      - name: data
+        persistentVolumeClaim:
+          claimName: multipan-pvc
+      affinity: 
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - {key: "feature.node.kubernetes.io/usb-ff_0424_ec00.present", operator: In, values: ["true"]}

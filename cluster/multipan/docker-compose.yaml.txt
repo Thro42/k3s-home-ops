@@ -1,0 +1,46 @@
+version: "3.3"
+services:
+    # Silab multiprotocol
+    multipan:
+        container_name: multipan
+        image: "homeassistant/aarch64-addon-silabs-multiprotocol:2.3.1"
+        # env_file: .env
+        environment:
+          # OCPD environment variables
+          - DEVICE="/dev/ttyUSB0"
+          - BAUDRATE="460800"
+          - CPCD_TRACE="true"
+          - FLOW_CONTROL="true"
+          - NETWORK_DEVICES=0 #"false"
+# OTBR-AGENT environment variables
+          - OTBR_ENABLE=1 #true
+          - BACKBONE_IF="eth0"
+          - OTBR_LOG_LEVEL="info"
+          - OTB_FIREWALL=1 #"true"
+          - OTBR_REST_LISTEN_PORT="8081"
+# OTBR-WEB environment variables
+          - OTBR_WEB_PORT="8086"
+# SOCAT environment variables
+          - NETWORK_DEVICE=
+# ZIGBEED environment variables
+          - EZSP_LISTEN_PORT="20108"
+# UNIVERSAL FLASHER variables
+          - AUTOFLASH_FIRMWARE=0 #""
+# Firmware needs to be in /root
+          - FIRMWARE="NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl"
+        cap_add:
+          - SYS_ADMIN
+          - NET_ADMIN
+        restart: always
+        privileged: true
+        #network_mode: host
+        build: ./
+        ports:
+          - 9999:9999/tcp
+          - 8080:8080/tcp
+          - 8086:8086/tcp
+          - 8081:8081/udp
+          - 20108:20108/udp
+        volumes:
+          -  "/home/docker/multipan/data:/data"
+          - /dev/serial/by-id/pci-0658_0200-if00:usbstic

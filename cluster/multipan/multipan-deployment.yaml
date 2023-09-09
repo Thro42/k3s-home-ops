@@ -92,7 +92,7 @@ spec:
           type: CharDevice
       - name: app
         persistentVolumeClaim:
-          claimName: multipan-pvc
+          claimName: multipan-app
       - name: data
         persistentVolumeClaim:
           claimName: multipan-pvc

@@ -25,7 +25,7 @@ spec:
             - name: CPCD_TRACE
               value: 'true'
             - name: DEVICE
-              value: '/dev/ttyACM0'
+              value: 'ttyACM0'
             - name: EZSP_LISTEN_PORT
               value: '20108'
             - name: FIRMWARE
@@ -79,14 +79,14 @@ spec:
             privileged: true
           volumeMounts:
           - mountPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
-            name: ttyacm
+            name: ttyACM0
           - mountPath: /data
             name: data
           - mountPath: /app
             name: app
       restartPolicy: Always
       volumes:
-      - name: /dev/ttyACM0
+      - name: ttyACM0
         hostPath:
           path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
           type: CharDevice

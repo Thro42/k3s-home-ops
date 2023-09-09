@@ -19,32 +19,32 @@ spec:
             - name: AUTOFLASH_FIRMWARE
               value: "0"
             - name: BACKBONE_IF
-              value: '"eth0"'
+              value: "eth0"
             - name: BAUDRATE
-              value: '"460800"'
+              value: '460800'
             - name: CPCD_TRACE
-              value: '"true"'
+              value: 'true'
             - name: DEVICE
-              value: '"/dev/ttyUSB0"'
+              value: 'sonoffstick'
             - name: EZSP_LISTEN_PORT
-              value: '"20108"'
+              value: '20108'
             - name: FIRMWARE
-              value: '"NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl"'
+              value: "NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl"
             - name: FLOW_CONTROL
-              value: '"true"'
+              value: 'true'
             - name: NETWORK_DEVICE
             - name: NETWORK_DEVICES
               value: "0"
             - name: OTBR_ENABLE
               value: "1"
             - name: OTBR_LOG_LEVEL
-              value: '"info"'
+              value: 'info'
             - name: OTBR_REST_LISTEN_PORT
-              value: '"8081"'
+              value: '8081'
             - name: OTBR_WEB_PORT
-              value: '"8086"'
+              value: '8086'
             - name: OTB_FIREWALL
-              value: "1"
+              value: '1'
           image: homeassistant/aarch64-addon-silabs-multiprotocol:2.3.1
           name: multipan
           ports:

@@ -45,8 +45,8 @@ spec:
               value: '8086'
             - name: OTB_FIREWALL
               value: '1'
-          # image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64 #homeassistant/aarch64-addon-silabs-multiprotocol:2.3.1
-          image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
+          image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64
+          #image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
           name: multipan
           ports:
             - containerPort: 9999
@@ -82,12 +82,17 @@ spec:
             name: ttyacm
           - mountPath: /data
             name: data
+          - mountPath: /app
+            name: app
       restartPolicy: Always
       volumes:
       - name: ttyacm
         hostPath:
           path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
           type: CharDevice
+      - name: app
+        persistentVolumeClaim:
+          claimName: multipan-pvc
       - name: data
         persistentVolumeClaim:
           claimName: multipan-pvc

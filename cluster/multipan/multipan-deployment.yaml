@@ -25,7 +25,7 @@ spec:
             - name: CPCD_TRACE
               value: 'true'
             - name: DEVICE
-              value: /dev/ttyACM0
+              value: '/dev/ttyACM0'
             - name: EZSP_LISTEN_PORT
               value: '20108'
             - name: FIRMWARE

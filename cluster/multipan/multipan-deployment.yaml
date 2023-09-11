@@ -48,9 +48,9 @@ spec:
             - name: OTBR_REST_LISTEN_PORT
               value: '8081'
             - name: OTBR_WEB_PORT
-              value: '8080'
+              value: '80'
             - name: OTB_FIREWALL
-              value: '1'
+              value: '0'
           image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64
           #image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
           name: multipan

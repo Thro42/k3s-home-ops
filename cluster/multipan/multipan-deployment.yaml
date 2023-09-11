@@ -20,6 +20,8 @@ spec:
               value: '1'
             - name: BACKBONE_IF
               value: 'eth0@if16'
+            - name: BACKBONE_INTERFACE
+              value: 'eth0@if16'
             - name: INFRA_IF_NAME
               value: 'eth0@if16'
             - name: BAUDRATE
@@ -27,6 +29,8 @@ spec:
             - name: CPCD_TRACE
               value: 'true'
             - name: DEVICE
+              value: '/dev/ttyACM0'
+            - name: RADIO_URL
               value: '/dev/ttyACM0'
             - name: EZSP_LISTEN_PORT
               value: '20108'

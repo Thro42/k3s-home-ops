@@ -5,6 +5,8 @@ metadata:
   namespace: multipan
 spec:
   ports:
+    - name: http
+      port: 80
     - name: "9999"
       port: 9999
       targetPort: 9999

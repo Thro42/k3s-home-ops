@@ -19,11 +19,11 @@ spec:
             - name: AUTOFLASH_FIRMWARE
               value: '1'
             - name: BACKBONE_IF
-              value: 'eth0@if16'
+              value: 'eth0'
             - name: BACKBONE_INTERFACE
-              value: 'eth0@if16'
+              value: 'eth0'
             - name: INFRA_IF_NAME
-              value: 'eth0@if16'
+              value: 'eth0'
             - name: BAUDRATE
               value: '460800'
             - name: CPCD_TRACE

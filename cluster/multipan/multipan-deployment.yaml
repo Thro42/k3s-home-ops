@@ -51,8 +51,8 @@ spec:
               value: '80'
             - name: OTB_FIREWALL
               value: '0'
-          image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64
-          #image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
+          #image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64
+          image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
           name: multipan
           ports:
             - containerPort: 9999

@@ -4,7 +4,7 @@ metadata:
   name: zwave2mqtt-tcp
   namespace: zwave2mqtt
   annotations:
-    metallb.universe.tf/address-pool: server
+#    metallb.universe.tf/address-pool: server
     metallb.universe.tf/allow-shared-ip: zwave2mqtt
 spec:
   ports:

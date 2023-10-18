@@ -5,9 +5,9 @@ metadata:
 #    name: zwave2mqtt-tcp
   name: zwave2mqtt-tcp
   namespace: zwave2mqtt
-  annotations:
+#  annotations:
 #    metallb.universe.tf/address-pool: server
-    metallb.universe.tf/allow-shared-ip: zwave2mqtt
+#    metallb.universe.tf/allow-shared-ip: zwave2mqtt
 spec:
 #  externalIPs:
 #    - 192.168.42.18
@@ -21,7 +21,7 @@ spec:
       protocol: TCP
       name: websocket
   selector:
-#    app.kubernetes.io/name: zwave2mqtt
-    name: zwave2mqtt
-#  type: LoadBalancer
-#  loadBalancerIP: 192.168.42.18
+    app.kubernetes.io/name: zwave2mqtt
+    name: zwave2mqtt-tcp
+  type: LoadBalancer
+  loadBalancerIP: 192.168.42.18

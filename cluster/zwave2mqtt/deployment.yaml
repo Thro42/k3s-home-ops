@@ -10,7 +10,8 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      io.ebt.service: zwave2mqtt
+      name: zwave2mqtt
+#      io.ebt.service: zwave2mqtt
   strategy:
     type: Recreate
   template:

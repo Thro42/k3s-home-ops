@@ -7,7 +7,7 @@ metadata:
   name: zwave2mqtt-tcp
   namespace: zwave2mqtt
   annotations:
-    metallb.universe.tf/address-pool: server
+#    metallb.universe.tf/address-pool: server
     metallb.universe.tf/allow-shared-ip: zwave2mqtt
 spec:
 #  externalIPs:
@@ -26,4 +26,4 @@ spec:
 #    io.ebt.service: zwave2mqtt
     name: zwave2mqtt-tcp
   type: LoadBalancer
-  loadBalancerIP: 192.168.42.18
+  loadBalancerIP: 192.168.42.26

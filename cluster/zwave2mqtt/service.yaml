@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: zwave2mqtt
+  namespace: zwave2mqtt
 spec:
   ports:
     - name: http
@@ -12,5 +13,3 @@ spec:
       targetPort: websocket
   selector:
     name: zwave2mqtt
-  type: LoadBalancer
-  loadBalancerIP: 192.168.42.26

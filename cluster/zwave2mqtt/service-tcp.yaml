@@ -23,7 +23,7 @@ spec:
       name: websocket
   selector:
 #    app.kubernetes.io/name: zwave2mqtt
-    io.ebt.service: zwave2mqtt
+#    io.ebt.service: zwave2mqtt
     name: zwave2mqtt-tcp
   type: LoadBalancer
   loadBalancerIP: 192.168.42.18

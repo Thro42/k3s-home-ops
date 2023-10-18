@@ -9,8 +9,8 @@ metadata:
 #    metallb.universe.tf/address-pool: server
     metallb.universe.tf/allow-shared-ip: zwave2mqtt
 spec:
-  externalIPs:
-    - 192.168.42.18
+#  externalIPs:
+#    - 192.168.42.18
   ports:
     - name: http
       port: 80

@@ -2,19 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+    metallb.universe.tf/address-pool: server
     name: zwave2mqtt
+    io.ebt.service: zwave2mqtt
   name: zwave2mqtt
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: zwave2mqtt
+      io.ebt.service: zwave2mqtt
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         name: zwave2mqtt
+        metallb.universe.tf/address-pool: server
+        io.ebt.service: zwave2mqtt
     spec:
       containers:
       - name: zwave2mqtt

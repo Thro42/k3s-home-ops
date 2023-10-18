@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     name: zwave2mqtt-tcp
-    io.ebt.service: zwave2mqtt
+    io.ebt.service: zwave2mqtt-tcp
   name: zwave2mqtt-tcp
   namespace: zwave2mqtt
   annotations:

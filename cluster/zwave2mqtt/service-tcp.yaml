@@ -15,9 +15,11 @@ spec:
     - port: 80
       targetPort: 80
       protocol: TCP
+      name: http
     - port: 3030
       targetPort: 3030
       protocol: TCP
+      name: websocket
   selector:
     app.kubernetes.io/name: zwave2mqtt
   type: LoadBalancer

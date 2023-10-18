@@ -60,6 +60,8 @@ spec:
         #   subPath: settings.json
 #      nodeSelector:
 #        kubernetes.io/hostname: stick1 #<--- the name of your cluster node that the zwave usb stick in
+      hostNetwork: true
+      hostname: zwave
       volumes:
       # - name: config <-- if putting your settings.json in a secret
       #   secret:

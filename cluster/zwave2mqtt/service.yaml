@@ -15,9 +15,9 @@ spec:
     - name: http
       port: 80
       targetPort: http
-    - name: websocket
-      port: 3030
-      targetPort: websocket
+#    - name: websocket
+#      port: 3030
+#      targetPort: websocket
   selector:
 #    io.ebt.service: zwave2mqtt
     name: zwave2mqtt

@@ -12,3 +12,5 @@ spec:
       targetPort: websocket
   selector:
     name: zwave2mqtt
+  type: LoadBalancer
+  loadBalancerIP: 192.168.42.26

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - "192.168.42.23-192.168.42.33"
+    - name: grafana
+      protocol: layer2
+      addresses:
+      - "192.168.42.20"
+    - name: pihole
+      protocol: layer2
+      addresses:
+      - "192.168.42.6"
+    - name: server
+      protocol: layer2
+      addresses:
+      - "192.168.42.7-192.168.42.19"
+    - name: iot
+      protocol: layer2
+      addresses:
+      - "192.168.43.100-192.168.43.200"

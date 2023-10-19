@@ -82,6 +82,7 @@ spec:
       enableServiceLinks: true
       hostNetwork: true
       hostname: zwave
+      serviceAccountName: default
       affinity: 
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

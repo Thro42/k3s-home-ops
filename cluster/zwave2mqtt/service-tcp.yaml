@@ -6,17 +6,17 @@ metadata:
     io.ebt.service: zwave2mqtt-tcp
   name: zwave2mqtt-tcp
   namespace: zwave2mqtt
-  annotations:
+#  annotations:
 #    metallb.universe.tf/address-pool: server
-    metallb.universe.tf/allow-shared-ip: zwave2mqtt
+#    metallb.universe.tf/allow-shared-ip: zwave2mqtt
 spec:
 #  externalIPs:
 #    - 192.168.42.18
   ports:
-#    - port: 80
-#      targetPort: 80
-#      protocol: TCP
-#      name: http
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
     - port: 3030
       targetPort: websocket
       protocol: TCP

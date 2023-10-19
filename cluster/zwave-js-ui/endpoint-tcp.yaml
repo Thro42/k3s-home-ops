@@ -7,12 +7,12 @@ metadata:
   name: zwave-tcp
   namespace: zwave
 subsets:
-#  - addresses:
-#      - targetRef:
+  - addresses:
+      - targetRef:
 #          app.kubernetes.io/instance: zwave-js-ui
-#          kind: Pod
-#          namespace: zwave
-#        ip: 192.168.42.28
+          kind: Pod
+          namespace: zwave
+        ip: 192.168.42.44
   - ports:
       - name: websocket
         port: 3030

@@ -10,8 +10,8 @@ metadata:
 #    metallb.universe.tf/address-pool: server
     metallb.universe.tf/allow-shared-ip: zwave
 spec:
-  externalIPs:
-    - 192.168.42.28
+#  externalIPs:
+#    - 192.168.42.28
   ports:
     - port: 8091
       targetPort: 8091
@@ -24,6 +24,6 @@ spec:
   selector:
     app.kubernetes.io/instance: zwave-js-ui
 #    name: zwave
-  type: ClusterIP
-#  type: LoadBalancer
-#  loadBalancerIP: 192.168.42.28
+#  type: ClusterIP
+  type: LoadBalancer
+  loadBalancerIP: 192.168.42.28

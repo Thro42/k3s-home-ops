@@ -5,10 +5,10 @@ metadata:
     name: zwave-tcp
 #    io.ebt.service: zwave-tcp
   name: zwave-tcp
-#  namespace: zwave
+  namespace: zwave
 #  annotations:
 #    metallb.universe.tf/address-pool: server
-#    metallb.universe.tf/allow-shared-ip: zwave2mqtt
+#    metallb.universe.tf/allow-shared-ip: zwave
 spec:
 #  externalIPs:
 #    - 192.168.42.28
@@ -22,9 +22,9 @@ spec:
       protocol: TCP
       name: websocket
   selector:
-##    app.kubernetes.io/name: zwave2mqtt
-##    io.ebt.service: zwave2mqtt
-    name: zwave
+    app.kubernetes.io/name: zwave
+#    io.ebt.service: zwave2mqtt
+#    name: zwave
 #  type: ClusterIP
   type: LoadBalancer
   loadBalancerIP: 192.168.42.28

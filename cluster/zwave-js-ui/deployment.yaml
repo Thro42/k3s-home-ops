@@ -78,6 +78,10 @@ spec:
           claimName: zwave
 #        hostPath:
 #          path: /zwave/data
+      dnsPolicy: ClusterFirstWithHostNet
+      enableServiceLinks: true
+      hostNetwork: true
+      hostname: zwave
       affinity: 
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

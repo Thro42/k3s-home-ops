@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: zwave
     app.kubernetes.io/name: zwave
-    name: zwave
+#    name: zwave
   name: zwave
 spec:
   replicas: 1

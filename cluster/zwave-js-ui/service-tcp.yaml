@@ -14,13 +14,11 @@ spec:
     - 192.168.42.28
   ports:
     - port: 80
-      targetPort: http
-##      nodePort: 80
+      targetPort: 8091
       protocol: TCP
       name: http
     - port: 3030
       targetPort: 3030
-##      nodePort: 3030
       protocol: TCP
       name: websocket
   selector:

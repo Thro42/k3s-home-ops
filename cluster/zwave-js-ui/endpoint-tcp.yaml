@@ -8,7 +8,7 @@ metadata:
   namespace: zwave
 subsets:
   - addresses:
-      - ip: 192.168.42.28
+      - ip: 192.168.42.44
         targetRef:
           kind: Pod
           namespace: zwave

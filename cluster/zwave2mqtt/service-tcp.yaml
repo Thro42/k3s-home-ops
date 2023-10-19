@@ -15,10 +15,12 @@ spec:
   ports:
     - port: 80
       targetPort: 80
+      nodePort: 80
       protocol: TCP
       name: http
     - port: 3030
-      targetPort: websocket
+      targetPort: 3030
+      nodePort: 3030
       protocol: TCP
       name: websocket
   selector:

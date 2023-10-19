@@ -10,5 +10,7 @@ spec:
     - name: websocket
       port: 3000
       targetPort: websocket
+  externalIPs:
+    - 192.168.42.28
   selector:
     name: zwave

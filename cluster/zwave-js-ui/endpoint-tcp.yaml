@@ -10,7 +10,7 @@ subsets:
   - addresses:
       - ip: 192.168.42.28
         targetRef:
-          app.kubernetes.io/instance: zwave-js-ui
+#          app.kubernetes.io/instance: zwave-js-ui
           kind: Pod
           namespace: zwave
     ports:

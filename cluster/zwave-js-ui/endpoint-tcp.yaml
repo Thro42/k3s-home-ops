@@ -12,7 +12,7 @@ subsets:
         targetRef:
           kind: Pod
           namespace: zwave
-  - ports:
+    ports:
       - name: websocket
         port: 3030
         protocol: TCP

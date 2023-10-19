@@ -14,7 +14,7 @@ spec:
     - 192.168.42.28
   ports:
     - port: 80
-      targetPort: 8091
+      targetPort: 80
 #      nodePort: 80
       protocol: TCP
       name: http

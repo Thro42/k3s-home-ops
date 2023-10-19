@@ -37,8 +37,11 @@ spec:
 #          successThreshold: 1
 #          timeoutSeconds: 1
         ports:
-        - containerPort: 8091
+        - containerPort: 80
           name: http
+          protocol: TCP
+        - containerPort: 8091
+          name: http91
           protocol: TCP
         - name: websocket
           containerPort: 3030

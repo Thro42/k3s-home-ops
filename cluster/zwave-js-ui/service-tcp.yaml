@@ -21,6 +21,7 @@ spec:
       protocol: TCP
       name: websocket
   selector:
+    app.kubernetes.io/instance: zwave-js-ui
     name: zwave
 #  type: ClusterIP
   type: LoadBalancer

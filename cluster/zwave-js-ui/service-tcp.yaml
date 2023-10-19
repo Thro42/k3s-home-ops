@@ -24,7 +24,7 @@ spec:
   selector:
 ##    app.kubernetes.io/name: zwave2mqtt
 ##    io.ebt.service: zwave2mqtt
-    name: zwave
+    name: zwave-tcp
 #  type: ClusterIP
   type: LoadBalancer
   loadBalancerIP: 192.168.42.28

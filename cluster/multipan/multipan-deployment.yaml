@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: multipan
+  labels:
+    app.kubernetes.io/instance: multipan
+    app.kubernetes.io/name: multipan
 spec:
   replicas: 1
   selector:

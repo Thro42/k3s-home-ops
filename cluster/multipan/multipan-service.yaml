@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: multipan
   namespace: multipan
-  annotations:
-    metallb.universe.tf/address-pool: server
+#  annotations:
+#    metallb.universe.tf/address-pool: server
 spec:
   ports:
     - name: http
@@ -35,3 +35,7 @@ spec:
 #  loadBalancerIP: 192.168.42.27
   externalIPs:
     - 192.168.42.27
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster

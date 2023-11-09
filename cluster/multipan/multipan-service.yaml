@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: multipan
   namespace: multipan
+  labels:
+      app.kubernetes.io/instance: multipan
+      app.kubernetes.io/name: multipan
 #  annotations:
 #    metallb.universe.tf/address-pool: server
 spec:
@@ -29,6 +32,7 @@ spec:
       targetPort: 20108
   selector:
 #    name: multipan
+    app.kubernetes.io/instance: multipan
     app.kubernetes.io/name: multipan
 #  type: LoadBalancer
   type: ClusterIP

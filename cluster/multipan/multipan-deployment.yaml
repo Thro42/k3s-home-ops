@@ -20,7 +20,7 @@ spec:
       containers:
         - env:
             - name: AUTOFLASH_FIRMWARE
-              value: '1'
+              value: '0'
             - name: BACKBONE_IF
               value: 'eth0'
             - name: BACKBONE_INTERFACE
@@ -40,8 +40,8 @@ spec:
             - name: FIRMWARE
               value: 'NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl'
             - name: FLOW_CONTROL
-              value: 'false'
-            - name: NETWORK_DEVICE
+              value: 'true'
+#            - name: NETWORK_DEVICE
             - name: NETWORK_DEVICES
               value: '0'
             - name: OTBR_ENABLE

@@ -115,4 +115,5 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - {key: "feature.node.kubernetes.io/usb-ff_0424_ec00.present", operator: In, values: ["true"]}
+              - {key: "feature.node.kubernetes.io/usb-02_1a86_55d4.present", operator: In, values: ["true"]}
+#              - {key: "feature.node.kubernetes.io/usb-ff_0424_ec00.present", operator: In, values: ["true"]}

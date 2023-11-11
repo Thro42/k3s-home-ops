@@ -61,6 +61,8 @@ spec:
             subPath: configuration.yaml
           - name: zigbee2mqtt-udev
             mountPath: /run/udev
+          - mountPath: /dev/ttyUSB0
+            name: ttyacm
         livenessProbe:
           tcpSocket:
             port: 8080
@@ -95,3 +97,14 @@ spec:
         - name: zigbee2mqtt-config
           configMap:
             name: zigbee2mqtt-config
+        - name: ttyacm
+          hostPath:
+            path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
+            type: CharDevice
+      affinity: 
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - {key: "feature.node.kubernetes.io/usb-02_1a86_55d4.present", operator: In, values: ["true"]}
+#              - {key: "feature.node.kubernetes.io/usb-ff_0424_ec00.present", operator: In, values: ["true"]}

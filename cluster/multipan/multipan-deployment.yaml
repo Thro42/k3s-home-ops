@@ -30,7 +30,7 @@ spec:
             - name: BAUDRATE
               value: '460800'
             - name: CPCD_TRACE
-              value: 'true'
+              value: 'false'
             - name: DEVICE
               value: '/dev/ttyUSB0'
             - name: RADIO_URL
@@ -42,9 +42,10 @@ spec:
 #              value: 'NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl'
             - name: FLOW_CONTROL
               value: 'false'
-#            - name: NETWORK_DEVICE
-#            - name: NETWORK_DEVICES
-#              value: '0'
+            - name: NETWORK_DEVICE
+              value: ''
+            - name: NETWORK_DEVICES
+              value: '0'
             - name: OTBR_ENABLE
               value: 'true'
             - name: OTBR_LOG_LEVEL
@@ -55,9 +56,9 @@ spec:
               value: '80'
             - name: OTB_FIREWALL
               value: 'false'
-          image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64
+#          image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64
 #          image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
-          #image: b2un0/silabs-multipan-docker:latest
+          image: b2un0/silabs-multipan-docker:latest
           name: multipan
           ports:
             - containerPort: 9999

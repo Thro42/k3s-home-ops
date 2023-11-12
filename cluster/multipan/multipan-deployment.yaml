@@ -48,7 +48,7 @@ spec:
             - name: OTBR_ENABLE
               value: '1'
             - name: OTBR_LOG_LEVEL
-              value: 'info'
+              value: 'notice'
             - name: OTBR_REST_LISTEN_PORT
               value: '8081'
             - name: OTBR_WEB_PORT

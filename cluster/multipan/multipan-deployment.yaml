@@ -41,7 +41,7 @@ spec:
             - name: 'rcp-uart-802154-v4.2.2-zbdonglee-460800.gbl'
 #              value: 'NabuCasa_SkyConnect_RCP_v4.3.1_rcp-uart-hw-802154_460800.gbl'
             - name: FLOW_CONTROL
-              value: 'false'
+              value: 'true'
 #            - name: NETWORK_DEVICE
             - name: NETWORK_DEVICES
               value: '0'

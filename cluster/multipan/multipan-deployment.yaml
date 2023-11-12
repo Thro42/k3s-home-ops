@@ -20,7 +20,7 @@ spec:
       containers:
         - env:
             - name: AUTOFLASH_FIRMWARE
-              value: '1'
+              value: 'true'
             - name: BACKBONE_IF
               value: 'eth0'
             - name: BACKBONE_INTERFACE
@@ -46,7 +46,7 @@ spec:
             - name: NETWORK_DEVICES
               value: '0'
             - name: OTBR_ENABLE
-              value: '1'
+              value: 'true'
             - name: OTBR_LOG_LEVEL
               value: 'notice'
             - name: OTBR_REST_LISTEN_PORT
@@ -54,7 +54,7 @@ spec:
             - name: OTBR_WEB_PORT
               value: '80'
             - name: OTB_FIREWALL
-              value: '0'
+              value: 'false'
           #image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64
           #image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
           image: b2un0/silabs-multipan-docker:latest

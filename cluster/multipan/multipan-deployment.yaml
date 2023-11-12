@@ -20,7 +20,7 @@ spec:
       containers:
         - env:
             - name: AUTOFLASH_FIRMWARE
-              value: 'true'
+              value: '1'
             - name: BACKBONE_IF
               value: 'eth0'
             - name: BACKBONE_INTERFACE
@@ -56,8 +56,8 @@ spec:
             - name: OTB_FIREWALL
               value: 'false'
           #image: siliconlabsinc/multiprotocol:gsdk-4.2.4-arm64
-          #image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
-          image: b2un0/silabs-multipan-docker:latest
+          image: homeassistant/aarch64-addon-silabs-multiprotocol:latest
+          #image: b2un0/silabs-multipan-docker:latest
           name: multipan
           ports:
             - containerPort: 9999

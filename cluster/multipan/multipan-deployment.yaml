@@ -43,8 +43,8 @@ spec:
             - name: FLOW_CONTROL
               value: 'true'
 #            - name: NETWORK_DEVICE
-            - name: NETWORK_DEVICES
-              value: '0'
+#            - name: NETWORK_DEVICES
+#              value: '0'
             - name: OTBR_ENABLE
               value: 'true'
             - name: OTBR_LOG_LEVEL

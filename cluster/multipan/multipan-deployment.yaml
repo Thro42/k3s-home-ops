@@ -20,7 +20,7 @@ spec:
       containers:
         - env:
             - name: AUTOFLASH_FIRMWARE
-              value: '1'
+              value: '0'
             - name: BACKBONE_IF
               value: 'eth0'
             - name: BACKBONE_INTERFACE

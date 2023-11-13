@@ -18,15 +18,19 @@ spec:
     - name: http
       port: 80
       targetPort: 80
+      protocol: TCP
     - name: "9999"
       port: 9999
       targetPort: 9999
+      protocol: TCP
     - name: "8080"
       port: 8080
       targetPort: 8080
+      protocol: TCP
     - name: "8086"
       port: 8086
       targetPort: 8086
+      protocol: TCP
   selector:
     name: multipan
     app.kubernetes.io/instance: multipan

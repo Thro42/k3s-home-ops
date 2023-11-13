@@ -32,7 +32,7 @@ spec:
       protocol: UDP
       targetPort: 20108
   selector:
-#    name: multipan
+    name: multipan
     app.kubernetes.io/instance: multipan
     app.kubernetes.io/name: multipan
 #  type: LoadBalancer

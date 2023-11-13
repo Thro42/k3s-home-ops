@@ -105,7 +105,7 @@ spec:
       - name: ttyacm
         hostPath:
           path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
-#          type: CharDevice
+          type: CharDevice 
       - name: app
         persistentVolumeClaim:
           claimName: multipan-app

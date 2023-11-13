@@ -8,8 +8,10 @@ metadata:
 subsets:
   - addresses:
       - ip: 192.168.42.27
+        hostname: multipan.thomitzek.net
         targetRef:
           kind: Pod
+          name: multipan
           namespace: multipan
     ports:
       - name: http

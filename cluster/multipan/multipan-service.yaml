@@ -31,7 +31,6 @@ spec:
       port: 20108
       protocol: UDP
       targetPort: 20108
-      hostPort: 20108
   selector:
 #    name: multipan
     app.kubernetes.io/instance: multipan

@@ -24,7 +24,7 @@ spec:
       port: 8086
       targetPort: 8086
   selector:
-#    name: multipan
+    name: multipan
     app.kubernetes.io/instance: multipan
     app.kubernetes.io/name: multipan-tcp
   type: LoadBalancer

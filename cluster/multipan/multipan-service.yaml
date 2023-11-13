@@ -6,8 +6,9 @@ metadata:
   labels:
       app.kubernetes.io/instance: multipan
       app.kubernetes.io/name: multipan
-#  annotations:
+  annotations:
 #    metallb.universe.tf/address-pool: server
+    metallb.universe.tf/allow-shared-ip: multipan
 spec:
   ports:
     - name: http

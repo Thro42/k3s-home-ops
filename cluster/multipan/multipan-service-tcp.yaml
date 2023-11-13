@@ -37,7 +37,7 @@ spec:
     app.kubernetes.io/name: multipan
   type: LoadBalancer
   loadBalancerIP: 192.168.42.27
-#  externalIPs:
-#    - 192.168.42.27
+  externalIPs:
+    - 192.168.42.27
   ipFamilies:
     - IPv4

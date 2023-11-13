@@ -26,3 +26,26 @@ subsets:
       - name: "20108"
         port: 20108
         protocol: UDP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: multipan-tcp
+  namespace: multipan
+  labels:
+    app.kubernetes.io/instance: multipan
+subsets:
+  - addresses:
+      - ip: 192.168.42.27
+        targetRef:
+          kind: Pod
+          namespace: multipan
+    ports:
+      - name: http
+        port: 80
+      - name: "9999"
+        port: 9999
+      - name: "8080"
+        port: 8080
+      - name: "8086"
+        port: 8086

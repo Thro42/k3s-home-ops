@@ -63,6 +63,8 @@ spec:
             mountPath: /run/udev
           - mountPath: /dev/ttyUSB0
             name: ttyacm
+          - mountPath: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_96000ab3b71aec1181a676e5f01c6278-if00-port0
+            name: ttyacm
         livenessProbe:
           tcpSocket:
             port: 8080

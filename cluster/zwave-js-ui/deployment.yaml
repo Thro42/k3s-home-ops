@@ -84,10 +84,9 @@ spec:
       hostNetwork: true
 #      hostname: zwave
       serviceAccountName: default
-      affinity: 
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - {key: "feature.node.kubernetes.io/custom-zwave", operator: In, values: ["true"]}
-              
+ #     affinity: 
+ #       nodeAffinity:
+ #         requiredDuringSchedulingIgnoredDuringExecution:
+ #           nodeSelectorTerms:
+ #           - matchExpressions:
+ #             - {key: "feature.node.kubernetes.io/custom-zwave", operator: In, values: ["true"]}

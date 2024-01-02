@@ -7,7 +7,7 @@ metadata:
   name: zwave
   namespace: zwave
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       name: zwave
@@ -81,7 +81,7 @@ spec:
 #          path: /zwave/data
 #      dnsPolicy: ClusterFirstWithHostNet
 #      enableServiceLinks: true
-      hostNetwork: true
+#      hostNetwork: true
 #      hostname: zwave
       serviceAccountName: default
       affinity: 

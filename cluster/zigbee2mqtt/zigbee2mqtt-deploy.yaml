@@ -62,9 +62,9 @@ spec:
           - name: zigbee2mqtt-udev
             mountPath: /run/udev
           - mountPath: /dev/ttyUSB0
-            name: ttyacm
+            name: ttyUSB0
           - mountPath: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_96000ab3b71aec1181a676e5f01c6278-if00-port0
-            name: ttyacm
+            name: zigbeestick
         livenessProbe:
           tcpSocket:
             port: 8080
@@ -99,7 +99,11 @@ spec:
         - name: zigbee2mqtt-config
           configMap:
             name: zigbee2mqtt-config
-        - name: ttyacm
+        - name: ttyUSB0
+          hostPath:
+            path: /dev/ttyUSB0
+            type: CharDevice
+        - name: zigbeestick
           hostPath:
             path: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_96000ab3b71aec1181a676e5f01c6278-if00-port0
 #            path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00

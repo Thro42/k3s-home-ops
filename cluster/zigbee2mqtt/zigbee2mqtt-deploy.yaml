@@ -105,7 +105,8 @@ spec:
             type: CharDevice
         - name: zigbeestick
           hostPath:
-            path: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_96000ab3b71aec1181a676e5f01c6278-if00-port0
+#            path: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_96000ab3b71aec1181a676e5f01c6278-if00-port0
+            path: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_445d3447b59ded1189a7dca5a7669f5d-if00-port0
 #            path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230803192301-if00
             type: CharDevice
       affinity: 
